@@ -1,2 +1,6 @@
 /* CSS Document */
 
+#general_options_form textarea{
+	width: 60%;
+	height: 100px;
+}

@@ -60,13 +60,14 @@ function register_dshboard_menu_section() {
 			'referencer options', 											//The text to be displayed in the title tags of the page
 			'RefO', 														//The text to be used for the menu
 			'administrator', 												//The capability
-			'referencer_theme_options', 									//The slug name to refer to this menu
+			'referencer_theme_options' , 									//The slug name to refer to this menu
 			'create_main_menu_option', 										//The function to be called to output the content
 			get_bloginfo( template_directory ) . '/images/menu-pic.png', 	//The URL to the icon to be used for this menu
 			80);															//The position in the menu order
 }
 add_action('admin_menu', 'register_dshboard_menu_section');
+
 //displays menu content
 function create_main_menu_option(){
-	new referencerOptions;
+	new ReferencerOptions('referencer_theme_options');
 }

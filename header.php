@@ -12,14 +12,14 @@
 
 	<?php 
 		$style = get_option( "" ); 
-		$default = get_option( "" ); 
+		$default = get_option( "general_options" ); 
 	?>
 	
 	<head>
-		<title><?php  ?></title>
+		<title><?php echo $default['page_title'] ?></title>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="<?php  ?>">
+		<meta name="description" content="<?php echo $default['page_description'] ?>">
 
 		<?php wp_head();?>
 
