@@ -21,6 +21,7 @@ function frontend_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'frontend_scripts' );
 
+
 // Add stylesheets for the admin area
 function admin_scripts(){
 	//Core media script
@@ -30,3 +31,19 @@ function admin_scripts(){
 	wp_enqueue_style( 'adminCSS', get_template_directory_uri() . '/css/admin.css' );
 }
 add_action( 'admin_enqueue_scripts', 'admin_scripts' );
+
+
+// load text domain for translation
+function referencer_localisation(){
+
+    function referencer_localised( $locale ) {
+        if ( isset( $_GET['l'] ) ) {
+            return sanitize_key( $_GET['l'] );
+        }
+        return $locale;
+    }
+    add_filter( 'locale', 'referencer_localised' );
+
+    load_theme_textdomain( 'referencer', get_template_directory() . '/languages' );
+}
+add_action( 'after_setup_theme', 'referencer_localisation' );
