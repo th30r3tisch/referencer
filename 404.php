@@ -1,10 +1,17 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Untitled Document</title>
-</head>
+<?php
+/**
+ * It the template that WordPress shows when links are broken or don’t work.
+ * Generates a page when a page or post does not exist.
+ * 
+ * @package WordPress
+ * @subpackage Referencer
+ * @since Referencer 0.1.0
+ * 
+ */
+get_header(); ?>
 
-<body>
-</body>
-</html>
+<div id="error">
+	
+</div>
+
+<?php get_footer(); ?>
