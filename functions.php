@@ -8,6 +8,7 @@
  */
 
 require_once( __DIR__. '\includes\referencerOptions.php');
+require_once( __DIR__. '\includes\bootstrap-wp-navwalker.php');
 
 /**---------------------------------------------------------------------------
 * adding scripts
@@ -15,10 +16,10 @@ require_once( __DIR__. '\includes\referencerOptions.php');
 
 // Add scripts and stylesheets (wp_enqueue = instantly loaded || wp_register_ = registered and can be enqued later in the code)
 function frontend_scripts() {
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/bootstrap-4.0.0/css/bootstrap.min.css');
-	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/bootstrap-4.0.0/js/bootstrap.min.js', array('jquery'), null, true );
-	wp_enqueue_script( 'mainJS', get_template_directory_uri() . '/js/main.js', array('jquery'), null, true);
-	wp_enqueue_style( 'mainCSS', get_template_directory_uri() . '/css/main.css' );
+	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/bootstrap-4.0.0/css/bootstrap.min.css');
+	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/bootstrap-4.0.0/js/bootstrap.min.js', array('jquery'), null, true );
+	wp_enqueue_script( 'main-js', get_template_directory_uri() . '/js/main.js', array('jquery'), null, true);
+	wp_enqueue_style( 'main-css', get_template_directory_uri() . '/css/main.css' );
 	wp_register_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', false, '', true);
 	wp_enqueue_script('popper');
 }
@@ -30,8 +31,8 @@ function admin_scripts(){
 	//Core media script
 	wp_enqueue_media();
 	
-	wp_enqueue_script( 'adminJS', get_template_directory_uri() . '/js/admin.js');
-	wp_enqueue_style( 'adminCSS', get_template_directory_uri() . '/css/admin.css' );
+	wp_enqueue_script( 'admin-js', get_template_directory_uri() . '/js/admin.js');
+	wp_enqueue_style( 'admin-css', get_template_directory_uri() . '/css/admin.css' );
 }
 add_action( 'admin_enqueue_scripts', 'admin_scripts' );
 
