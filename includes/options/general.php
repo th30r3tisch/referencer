@@ -9,9 +9,7 @@ class General {
 	function buildPage($tabUrl) {
 		
 		$hidden_field_name = 'sP_submit_hidden';
-		// See if the user changed some informations
-		// If they did, this hidden field will be set to 'Y'
-		// same db reference in all sections -> if in one section something changes it will see it
+		
 		if( isset($_POST[ $hidden_field_name ]) && $_POST[ $hidden_field_name ] == 'Y' ) {
 			?>
 			<!--  Put a "settings saved" message on the screen	 -->
@@ -33,7 +31,7 @@ class General {
 
 function initialise_general_options(){
 	$option_name = 'general_options';
-	$tabUrl = 'referencer_theme_options&tab=general';
+	$tabUrl = 'referencer_theme_options&tab=general'; // same like the param in the constructor
 	$mainSection = 'main_section';
 	
 	// fetch existing options
