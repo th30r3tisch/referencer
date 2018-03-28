@@ -15,10 +15,12 @@ require_once( __DIR__. '\includes\referencerOptions.php');
 
 // Add scripts and stylesheets (wp_enqueue = instantly loaded || wp_register_ = registered and can be enqued later in the code)
 function frontend_scripts() {
-	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/bootstrap-4.0.0/css/bootstrap.min.css', array(), '4.0.0', 'all');
-	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/bootstrap-4.0.0/js/bootstrap.min.js', array('jquery'), '4.0.0', true );
-	wp_enqueue_script( 'mainJS', get_template_directory_uri() . '/js/main.js', array('jquery'));
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/bootstrap-4.0.0/css/bootstrap.min.css');
+	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/bootstrap-4.0.0/js/bootstrap.min.js', array('jquery'), null, true );
+	wp_enqueue_script( 'mainJS', get_template_directory_uri() . '/js/main.js', array('jquery'), null, true);
 	wp_enqueue_style( 'mainCSS', get_template_directory_uri() . '/css/main.css' );
+	wp_register_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', false, '', true);
+	wp_enqueue_script('popper');
 }
 add_action( 'wp_enqueue_scripts', 'frontend_scripts' );
 
@@ -36,16 +38,14 @@ add_action( 'admin_enqueue_scripts', 'admin_scripts' );
 
 // load text domain for translation
 function referencer_localisation(){
-
-    function referencer_localised( $locale ) {
-        if ( isset( $_GET['l'] ) ) {
-            return sanitize_key( $_GET['l'] );
-        }
-        return $locale;
-    }
-    add_filter( 'locale', 'referencer_localised' );
-
+	add_theme_support('title-tag');
     load_theme_textdomain( 'referencer', get_template_directory() . '/languages' );
+	add_theme_support('post-thumbnails');
+	register_nav_menus(
+			array(
+					'primary' =>  'Primary'
+				)
+			);
 }
 add_action( 'after_setup_theme', 'referencer_localisation' );
 

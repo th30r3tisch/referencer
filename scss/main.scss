@@ -1,2 +1,18 @@
 /* SCSS Document */
 
+
+/*******
+error
+*******/
+
+#error{
+	background: rgba(255,0,0,0.5);
+	text-align: center;
+    width: 460px;
+    padding: 20px;
+	margin-left: calc(50% - 250px);
+    margin-top: 200px;
+	p:first-child{
+		font-weight: bold;
+	}
+}

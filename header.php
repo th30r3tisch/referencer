@@ -16,7 +16,6 @@
 	?>
 	
 	<head>
-		<title><?php echo $default['page_title'] ?></title>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="<?php echo $default['page_description'] ?>">

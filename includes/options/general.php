@@ -44,8 +44,7 @@ function initialise_general_options(){
 	);
 	
 	$default_values = array(
-		'page_title'			=> '',
-		'page_description'		=> '',
+		'page_description'		=> ''
 	);
 	
 	// parse option value into predefined keys
@@ -57,21 +56,6 @@ function initialise_general_options(){
 		'main_callback',						// Callback used to render the description of the section
 		$tabUrl									// Page on which to add this section of options
 	);  
-	
-	// add option to change the header background between image and color
-	add_settings_field(
-		'page_title',
-		'Page title (meta)',
-		'input_callback',
-		$tabUrl,
-		$mainSection,
-		array(
-			'name'			=> 'page_title',
-			'value'			=> esc_attr($data['page_title']),
-			'option_name' 	=> $option_name,
-			'description'	=> 'Choose a title for your page (max 50-60 chars). It will appear in the header and is <strong>important</strong> to improve your SEO.'
-		)
-	);
 	
 	// add option to change the header background between image and color
 	add_settings_field(

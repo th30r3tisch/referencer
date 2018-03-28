@@ -11,7 +11,8 @@
 get_header(); ?>
 
 <div id="error">
-	
+	<p><?php _e("Oops !") ?></p>
+	<p><?php _e("Entschuldigung, die aufgerufene Url existiert nicht.") ?></p>
 </div>
 
 <?php get_footer(); ?>
