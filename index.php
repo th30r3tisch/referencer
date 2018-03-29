@@ -10,6 +10,7 @@
 get_header(); ?>
 
 <div id="content">
+	<?php get_sidebar('menu'); ?>
 	
 </div>
 

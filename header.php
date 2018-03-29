@@ -27,3 +27,21 @@
 		</style>
 	</head>
 	<body>
+		<div id="header">
+			<div class="menu">
+				<button type="button" data-toggle="collapse" data-target="#menu">
+					<div class="icon-bar"></div> 
+					<div class="icon-bar"></div> 
+					<div class="icon-bar"></div>
+				</button>
+			</div>
+			<div class="logo"></div>
+			<div class="flag">
+				<span>
+					<img src="<?php bloginfo('template_directory'); ?>/images/german-flag.svg" alt="german-flag">
+				</span>
+				<span>
+					<img src="<?php bloginfo('template_directory'); ?>/images/english-flag.svg" alt="german-flag">
+				</span>
+			</div>
+		</div>
