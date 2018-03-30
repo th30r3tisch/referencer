@@ -1,6 +1,5 @@
 /* SCSS Document */
 
-
 /*******
   error
 *******/
@@ -23,6 +22,11 @@
 
 #header{
 	height: 50px;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	z-index: 1001;
+	background: red;
 }
 
 .logo{
@@ -81,3 +85,80 @@
 		transition: 0.3s;
 	}
 }
+
+/*******
+ content
+*******/
+
+#content{
+	margin-top: 50px;
+	background: lightgrey;
+	height: calc(100vh - 50px);
+}
+
+#menu {
+	display: inline-block;
+	position: fixed;
+	ul.navbar-nav{
+		flex-direction: row;
+		height: calc(100vh - 50px);
+		display: inline-flex;
+	}
+	li .nav-link{
+		writing-mode: vertical-rl;
+		transform: rotate(180deg);
+		height: calc(100vh - 50px);
+    	text-align: center;
+		width: 30px;
+		color: rgba(255,255,255,0);
+		padding: 0px;
+		margin-left: -30px;
+		transition: margin-left 0.5s, color 0.2s;
+		&.collapse-side{
+			margin-left: 0px;
+		}
+		&.fade-text{
+			color: rgba(255,255,255,1.00);
+		}
+	}
+	.dropdown-menu.show{
+		transition: all 0.5s;
+		min-width: 30px;
+		height: calc(100vh - 50px);
+		transform: translate3d(0px, 0px, 0px) !important;
+		background: inherit;
+		display: flex;
+    	flex-flow: wrap;
+		margin: 0;
+		padding: 0;
+		border: none;
+		.dropdown-item{
+			writing-mode: vertical-rl;
+			transform: rotate(180deg);
+			width: 30px;
+			padding: 10px 0;
+			color: white;
+			text-align: center
+		}
+	}
+	.dropdown-toggle::after{
+		display: none;
+	}
+}
+
+
+.menu-item:nth-child(1){
+	background: rgba(0,0,0,1)
+}
+.menu-item:nth-child(2){
+	background: rgba(50,50,50,1)
+}
+.menu-item:nth-child(3){
+	background: rgba(100,100,100,1)
+}
+.menu-item:nth-child(4){
+	background: rgba(150,150,150,1)
+}
+
+
+

@@ -29,7 +29,7 @@
 	<body>
 		<div id="header">
 			<div class="menu">
-				<button type="button" data-toggle="collapse" data-target="#menu">
+				<button type="button">
 					<div class="icon-bar"></div> 
 					<div class="icon-bar"></div> 
 					<div class="icon-bar"></div>

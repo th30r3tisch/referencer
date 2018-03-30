@@ -18,6 +18,11 @@
  *******/
 #header {
   height: 50px;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  z-index: 1001;
+  background: red;
 }
 .logo {
   width: calc(100% - 200px);
@@ -71,4 +76,73 @@
   background: black;
   margin: 3px auto;
   transition: 0.3s;
+}
+/*******
+ content
+ *******/
+#content {
+  margin-top: 50px;
+  background: lightgrey;
+  height: calc(100vh - 50px);
+}
+#menu {
+  display: inline-block;
+  position: fixed;
+}
+#menu ul.navbar-nav {
+  flex-direction: row;
+  height: calc(100vh - 50px);
+  display: inline-flex;
+}
+#menu li .nav-link {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  height: calc(100vh - 50px);
+  text-align: center;
+  width: 30px;
+  color: rgba(255, 255, 255, 0);
+  padding: 0px;
+  margin-left: -30px;
+  transition: margin-left 0.5s, color 0.2s;
+}
+#menu li .nav-link.collapse-side {
+  margin-left: 0px;
+}
+#menu li .nav-link.fade-text {
+  color: rgba(255, 255, 255, 1.00);
+}
+#menu .dropdown-menu.show {
+  transition: all 0.5s;
+  min-width: 30px;
+  height: calc(100vh - 50px);
+  transform: translate3d(0px, 0px, 0px) !important;
+  background: inherit;
+  display: flex;
+  flex-flow: wrap;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+#menu .dropdown-menu.show .dropdown-item {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  width: 30px;
+  padding: 10px 0;
+  color: white;
+  text-align: center;
+}
+#menu .dropdown-toggle::after {
+  display: none;
+}
+.menu-item:nth-child(1) {
+  background: rgba(0, 0, 0, 1);
+}
+.menu-item:nth-child(2) {
+  background: rgba(50, 50, 50, 1);
+}
+.menu-item:nth-child(3) {
+  background: rgba(100, 100, 100, 1);
+}
+.menu-item:nth-child(4) {
+  background: rgba(150, 150, 150, 1);
 }

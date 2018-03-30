@@ -1,5 +1,4 @@
-<div id="menu" class="collapse">
-	<div id="navbar" class="navbar-collapse" >
+<div id="menu">
 				<?php
 				$args = array(
 					'theme_location' => 'primary',
@@ -10,5 +9,4 @@
 				)
 				?>
 				<?php wp_nav_menu( $args ); ?>
-	</div>
 </div>
