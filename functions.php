@@ -77,16 +77,9 @@ function create_main_menu_option(){
 function fetch_modal_content() {
   if ( isset($_REQUEST) ) {
     $page_name = $_REQUEST['pageName'];
-  ?>
-
-    <div id="ajax-content">
-		<?php $page = get_page_by_title( $page_name[0] );
-	  		$content = apply_filters('the_content', $page->post_content); 
-	  		echo $content;
-		?>
-    </div>
-
-  <?php
+ 	$page = get_page_by_title( $page_name[0] );
+	$content = apply_filters('the_content', $page->post_content); 
+	echo $content;
   }
   die();
 }

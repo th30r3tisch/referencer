@@ -1,5 +1,11 @@
 /* SCSS Document */
 
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
 /*******
   error
 *******/
@@ -141,7 +147,7 @@
 			width: 30px;
 			padding: 10px 0;
 			color: white;
-			text-align: center
+			text-align: center;
 		}
 	}
 	.dropdown-toggle::after{
