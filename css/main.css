@@ -94,6 +94,9 @@
   height: calc(100vh - 50px);
   display: inline-flex;
 }
+#menu li {
+  display: inline-flex;
+}
 #menu li .nav-link {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
@@ -145,4 +148,10 @@
 }
 .menu-item:nth-child(4) {
   background: rgba(150, 150, 150, 1);
+}
+/*******
+ ajax
+ *******/
+#ajax-content {
+  overflow: scroll;
 }

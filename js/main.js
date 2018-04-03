@@ -20,13 +20,35 @@ jQuery( document ).ready(function() {
 		}
 	});
 	
-	jQuery('#menu a.nav-link').click(function(){
-		var parentElement = jQuery(this).parent();
-		if(!parentElement.hasClass('extended') && !parentElement.hasClass('menu-item-has-children')){
-			parentElement.addClass('extended');
-			parentElement.append( "<p>Test</p>" );
-		}else{
-			parentElement.removeClass('extended');
+	jQuery('#menu a.nav-link, #menu a.dropdown-item').click(function(e){
+		if(!jQuery(this).parent().hasClass('menu-item-has-children')){
+			e.preventDefault();
+
+			var pageName = jQuery(this).attr('href').match(/[^/]+(?=\/$|$)/);
+			
+			ajaxCall(pageName, this);
 		}
 	});
 });
+
+function ajaxCall(pageName, obj){
+	"use strict";
+	jQuery.ajax({
+				url: ajaxurl,
+				data: {
+				  'action' : 'fetch_modal_content',
+				  'pageName' : pageName
+				},
+				context: obj,
+				success:function(data) {
+					if(jQuery("#ajax-content").length === 0){
+						jQuery(this).closest('li').append(data);
+						//var newUrl = window.location.href + pageName;
+						//window.history.pushState("object or string", "Title", newUrl);
+					}
+				},
+				error: function () {
+				  alert("error");
+				}
+			});
+}

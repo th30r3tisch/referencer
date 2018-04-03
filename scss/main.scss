@@ -104,21 +104,24 @@
 		height: calc(100vh - 50px);
 		display: inline-flex;
 	}
-	li .nav-link{
-		writing-mode: vertical-rl;
-		transform: rotate(180deg);
-		height: calc(100vh - 50px);
-    	text-align: center;
-		width: 30px;
-		color: rgba(255,255,255,0);
-		padding: 0px;
-		margin-left: -30px;
-		transition: margin-left 0.5s, color 0.2s;
-		&.collapse-side{
-			margin-left: 0px;
-		}
-		&.fade-text{
-			color: rgba(255,255,255,1.00);
+	li {
+		display: inline-flex;
+		.nav-link{
+			writing-mode: vertical-rl;
+			transform: rotate(180deg);
+			height: calc(100vh - 50px);
+			text-align: center;
+			width: 30px;
+			color: rgba(255,255,255,0);
+			padding: 0px;
+			margin-left: -30px;
+			transition: margin-left 0.5s, color 0.2s;
+			&.collapse-side{
+				margin-left: 0px;
+			}
+			&.fade-text{
+				color: rgba(255,255,255,1.00);
+			}
 		}
 	}
 	.dropdown-menu.show{
@@ -160,5 +163,10 @@
 	background: rgba(150,150,150,1)
 }
 
+/*******
+ ajax
+*******/
 
-
+#ajax-content{
+	overflow: scroll;
+}

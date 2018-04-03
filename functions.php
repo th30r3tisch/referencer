@@ -72,3 +72,23 @@ add_action('admin_menu', 'register_dshboard_menu_section');
 function create_main_menu_option(){
 	new ReferencerOptions('referencer_theme_options');
 }
+
+//load pages with ajax
+function fetch_modal_content() {
+  if ( isset($_REQUEST) ) {
+    $page_name = $_REQUEST['pageName'];
+  ?>
+
+    <div id="ajax-content">
+		<?php $page = get_page_by_title( $page_name[0] );
+	  		$content = apply_filters('the_content', $page->post_content); 
+	  		echo $content;
+		?>
+    </div>
+
+  <?php
+  }
+  die();
+}
+add_action( 'wp_ajax_fetch_modal_content', 'fetch_modal_content' );
+add_action( 'wp_ajax_nopriv_fetch_modal_content', 'fetch_modal_content' );

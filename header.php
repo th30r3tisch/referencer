@@ -12,7 +12,7 @@
 
 	<?php 
 		$style = get_option( "" ); 
-		$default = get_option( "general_options" ); 
+		$default = get_option( "general_options" );
 	?>
 	
 	<head>
@@ -23,8 +23,11 @@
 		<?php wp_head();?>
 
 		<style>
-
+			
 		</style>
+		<script>
+		var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
+		</script>
 	</head>
 	<body>
 		<div id="header">
