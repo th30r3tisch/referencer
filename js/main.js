@@ -4,6 +4,10 @@
 var flag;
 var ajaxElementID = "ajax-content";
 
+jQuery( window ).resize(function() {
+  jQuery('#' + ajaxElementID).css("width", parseInt(jQuery(window).width()) - 30 + 'px');
+});
+
 jQuery( document ).ready(function() {
 	"use strict";
 	
@@ -16,7 +20,7 @@ jQuery( document ).ready(function() {
 				jQuery('#menu').animate({ // fades in the menu
 				left: 0
 				}, 500);
-				var menuItemNum = jQuery('#menu ul li').length;
+				var menuItemNum = jQuery('#menu > ul').children('li').length;
 				var windowWidth = parseInt(jQuery(window).width());
 				jQuery("#ajax-content").animate({ // shrinks the content container
 				width: windowWidth - (menuItemNum * 30) + 'px'
@@ -31,6 +35,7 @@ jQuery( document ).ready(function() {
 			
 			if(contentIsVisible()){ // content is displayed
 				openContentAnimation(jQuery("#" + ajaxElementID));
+				
 			}else{// no content is visible
 				closeMenu(); 
 			}
@@ -41,11 +46,15 @@ jQuery( document ).ready(function() {
 	// click on menu item
 	jQuery('#menu a.nav-link, #menu a.dropdown-item').click(function(e){
 		if(!jQuery(this).parent().hasClass('menu-item-has-children')){
+			jQuery('.entry-content-page').empty();
+			//window.location(window.location.hostname + "/wordpress/");
 			e.preventDefault();
 			var pageName = jQuery(this).attr('href').match(/[^/]+(?=\/$|$)/);
 			
 			switchPage(pageName,this);
-			window.history.pushState(pageName, null, pageName);
+			window.history.pushState(pageName, null, null);
+		}else{
+			e.preventDefault();
 		}
 	});
 });
@@ -83,6 +92,9 @@ function ajaxCall(pageName, obj){
 		context: obj,
 		success:function(data) { // inserst the content in the div inserted before
 				jQuery('#ajax-content').html(data);
+				jQuery('#ajax-content').delay(300).animate({ // shrinks the content container
+					opacity: '1'
+					}, 500);
 		},
 		error: function () {
 		  alert("error");

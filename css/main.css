@@ -90,10 +90,17 @@
   margin-top: 50px;
   background: lightgrey;
   height: calc(100vh - 50px);
+  overflow: hidden;
+}
+#content .entry-content-page {
+  height: 100vh;
+  overflow: scroll;
+  position: relative;
 }
 #menu {
   display: inline-block;
   position: fixed;
+  z-index: 2;
 }
 #menu ul.navbar-nav {
   flex-direction: row;
@@ -123,6 +130,7 @@
 #menu .dropdown-menu.show {
   transition: all 0.5s;
   min-width: 30px;
+  max-width: 30px;
   height: calc(100vh - 50px);
   transform: translate3d(0px, 0px, 0px) !important;
   background: inherit;
@@ -139,6 +147,10 @@
   padding: 10px 0;
   color: white;
   text-align: center;
+}
+#menu .dropdown-menu.show .dropdown-item:hover {
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.00);
 }
 #menu .dropdown-toggle::after {
   display: none;
@@ -160,4 +172,8 @@
  *******/
 #ajax-content {
   overflow: scroll;
+  height: 100vh;
+  padding: 50px 100px 100px;
+  opacity: 0;
+  color: white;
 }
