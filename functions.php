@@ -17,6 +17,7 @@ require_once( __DIR__. '\includes\bootstrap-wp-navwalker.php');
 // Add scripts and stylesheets (wp_enqueue = instantly loaded || wp_register_ = registered and can be enqued later in the code)
 function frontend_scripts() {
 	wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/bootstrap-4.0.0/css/bootstrap.min.css');
+	wp_enqueue_style( 'fontAwesome-css', get_template_directory_uri() . '/fontawesome-5.0.9/web-fonts-with-css/css/fontawesome-all.min.css');
 	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/bootstrap-4.0.0/js/bootstrap.min.js', array('jquery'), null, true );
 	wp_enqueue_script( 'main-js', get_template_directory_uri() . '/js/main.js', array('jquery'), null, true);
 	wp_enqueue_style( 'main-css', get_template_directory_uri() . '/css/main.css' );

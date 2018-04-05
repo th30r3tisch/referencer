@@ -21,6 +21,10 @@ get_header(); ?>
 		endwhile; //resetting the page loop
 		wp_reset_query(); //resetting the page query
 	?>
+	
+	<div id="menuCloseBtn">
+		<i class="far fa-caret-square-left fa-2x"></i>
+	</div>
 </div>
 
 <?php get_footer(); ?>

@@ -12,6 +12,11 @@ jQuery( document ).ready(function() {
 	"use strict";
 	
 	// click on burger menu
+	jQuery('#menuCloseBtn').click(function(){
+		closeContent();
+	});
+	
+	// click on burger menu
 	jQuery('.menu button').click(function(){
 		if(jQuery('.visible-menu').length === 0){ // if menu is not visible
 			burgerToCross();
@@ -57,6 +62,7 @@ jQuery( document ).ready(function() {
 			e.preventDefault();
 		}
 	});
+	
 });
 
 function switchPage(pageName, obj){
@@ -111,7 +117,9 @@ function openContentAnimation(obj){
 		}, 500);
 	jQuery('#' + ajaxElementID).animate({
 		width: windowWidth - 30 + 'px'
-		}, 500);
+		}, 500, function(){
+			showBackBtn();
+		});
 }
 
 //walks through the history
@@ -120,16 +128,7 @@ window.addEventListener('popstate', function(e){
     var page = e.state;
 
     if (page === null) {
-		burgerToCross();
-		jQuery("#" + ajaxElementID).empty(); // removes the content
-		jQuery('#menu').animate({ // fades in the menu
-			left: 0
-			}, 500);
-		jQuery("#" + ajaxElementID).animate({ // shrinks the content container
-			width: '0px'
-			}, 500, function(){
-			jQuery("#" + ajaxElementID).remove(); // removes the content container
-		});
+		closeContent();
     } else {
 		var obj = jQuery("#menu li a:contains('" + page + "')");
 		switchPage(page, obj);
@@ -137,8 +136,28 @@ window.addEventListener('popstate', function(e){
 });
 
 
-
-
+// shrinks the content element and removes the content
+function closeContent(){
+	burgerToCross();
+	hideBackBtn();
+	jQuery("#" + ajaxElementID).empty(); // removes the content
+	jQuery('#menu').animate({ // fades in the menu
+		left: 0
+		}, 500);
+	jQuery("#" + ajaxElementID).animate({ // shrinks the content container
+		width: '0px'
+		}, 500, function(){
+		jQuery("#" + ajaxElementID).remove(); // removes the content container
+	});
+}
+// hides the button to close the menu
+function hideBackBtn(){
+	jQuery('#menuCloseBtn').css("display", "none");
+}
+// displays the button to close the menu
+function showBackBtn(){
+	jQuery('#menuCloseBtn').css("display", "block");
+}
 // makes jquery contains selector case insensitive
 jQuery.expr[':'].contains = function(a, i, m) {
 	return jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
