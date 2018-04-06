@@ -1,4 +1,7 @@
 /* SCSS Document */
+body {
+  font-family: 'Ubuntu', sans-serif;
+}
 ::-webkit-scrollbar {
   width: 0px;
   /* remove scrollbar space */
@@ -44,6 +47,10 @@
   width: 30px;
   margin: 15px 5px;
   box-shadow: 2px 2px 10px;
+  transition: 0.3s;
+}
+.flag img:hover {
+  box-shadow: none;
 }
 .menu {
   width: 100px;
@@ -139,13 +146,19 @@
   color: rgba(255, 255, 255, 0);
   padding: 0px;
   margin-left: -30px;
-  transition: margin-left 0.5s, color 0.2s;
+  transition: margin-left 0.5s, color 0.2s, opacity 0.2s;
 }
 #menu li .nav-link.collapse-side {
   margin-left: 0px;
 }
 #menu li .nav-link.fade-text {
   color: rgba(255, 255, 255, 1.00);
+}
+#menu li .nav-link:hover {
+  opacity: 1;
+}
+#menu:hover .nav-link {
+  opacity: 0.3;
 }
 #menu .dropdown-menu.show {
   transition: all 0.5s;

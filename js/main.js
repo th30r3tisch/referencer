@@ -5,7 +5,11 @@ var flag;
 var ajaxElementID = "ajax-content";
 
 jQuery( window ).resize(function() {
-  jQuery('#' + ajaxElementID).css("width", parseInt(jQuery(window).width()) - 30 + 'px');
+	if(jQuery('.visible-menu').length === 0){
+  		jQuery('#' + ajaxElementID).css("width", parseInt(jQuery(window).width()) - 30 + 'px');
+	}else{
+		jQuery('#' + ajaxElementID).css("width", parseInt(jQuery(window).width()) - (jQuery('#menu > ul').children('li').length * 30) + 'px');
+	}
 });
 
 jQuery( document ).ready(function() {
@@ -28,8 +32,8 @@ jQuery( document ).ready(function() {
 				var menuItemNum = jQuery('#menu > ul').children('li').length;
 				var windowWidth = parseInt(jQuery(window).width());
 				jQuery("#ajax-content").animate({ // shrinks the content container
-				width: windowWidth - (menuItemNum * 30) + 'px'
-				}, 500);
+					width: windowWidth - (menuItemNum * 30) + 'px'
+					}, 500);
 				
 			}else{ // no content is visible
 				openMenu();
@@ -54,10 +58,10 @@ jQuery( document ).ready(function() {
 			jQuery('.entry-content-page').empty();
 			//window.location(window.location.hostname + "/wordpress/");
 			e.preventDefault();
+			var pageUrl = jQuery(this).attr('href');
 			var pageName = jQuery(this).attr('href').match(/[^/]+(?=\/$|$)/);
-			
 			switchPage(pageName,this);
-			window.history.pushState(pageName, null, null);
+			window.history.pushState(pageName, null, pageUrl);
 		}else{
 			e.preventDefault();
 		}
@@ -67,6 +71,7 @@ jQuery( document ).ready(function() {
 
 function switchPage(pageName, obj){
 	if(!contentIsVisible()){
+		openMenu();
 		crossToBurger();
 		openContentAnimation(obj);
 		flag = pageName;
@@ -98,7 +103,7 @@ function ajaxCall(pageName, obj){
 		context: obj,
 		success:function(data) { // inserst the content in the div inserted before
 				jQuery('#ajax-content').html(data);
-				jQuery('#ajax-content').delay(300).animate({ // shrinks the content container
+				jQuery('#ajax-content').delay(300).animate({
 					opacity: '1'
 					}, 500);
 		},
