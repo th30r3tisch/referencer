@@ -11,7 +11,7 @@
 <html lang="de">
 
 	<?php 
-		$style = get_option( "" ); 
+		$style = get_option( "style_options" ); 
 		$default = get_option( "general_options" );
 	?>
 	
@@ -23,7 +23,8 @@
 		<?php wp_head();?>
 
 		<style>
-			
+			#header{background: <?php echo $style['color_header'] ?>;}
+			.logo{color: <?php echo $style['color_title'] ?>;}
 		</style>
 		<script>
 		var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
@@ -38,7 +39,7 @@
 					<div class="icon-bar"></div>
 				</button>
 			</div>
-			<div class="logo"></div>
+			<div class="logo"><?php echo $default['headerTitle'] ?></div>
 			<div class="flag">
 				<span>
 					<img src="<?php bloginfo('template_directory'); ?>/images/german-flag.svg" alt="german-flag">

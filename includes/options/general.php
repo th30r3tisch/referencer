@@ -44,7 +44,8 @@ function initialise_general_options(){
 	);
 	
 	$default_values = array(
-		'page_description'		=> ''
+		'page_description'		=> '',
+		'headerTitle'			=> '',
 	);
 	
 	// parse option value into predefined keys
@@ -57,7 +58,7 @@ function initialise_general_options(){
 		$tabUrl									// Page on which to add this section of options
 	);  
 	
-	// add option to change the header background between image and color
+	// add option for meta description
 	add_settings_field(
 		'page_description',
 		'Page description (meta)',
@@ -71,19 +72,48 @@ function initialise_general_options(){
 			'description'	=> 'Choose a description for your page (between 50–300 chars). It will appear in a meta tag in the header and is <strong>important</strong> to improve your SEO.'
 		)
 	);
+	// add option for the title
+	add_settings_field(
+		'headerTitle',
+		'Page title (logo)',
+		'title_callback',
+		$tabUrl,
+		$mainSection,
+		array(
+			'name'			=> 'headerTitle',
+			'value'			=> esc_attr($data['headerTitle']),
+			'option_name' 	=> $option_name,
+			'description'	=> 'Choose a title. It is displayed at the page header like a logo'
+		)
+	);
 }
 add_action ('admin_init', 'initialise_general_options');
 
 // displays a description under the main_styling_section
 function main_callback(){
-	echo '<p>Here you can make some changes that can improve your SEO significantly.</p>';
+	echo '<p>Here you can make some general changes</p>';
 }
 
-// add option to choose the color of the sidebar
+// option to change meta description
 function input_callback($args){
 	printf(
 			'<div>
 				<textarea name="%1$s[%2$s]" value="%3$s">%3$s</textarea>
+				<p></p>
+				<p class="description">%4$s</p>
+			 </div>',
+			$args['option_name'],
+			$args['name'],
+			$args['value'],
+			$args['description']
+			);
+}
+
+// option to change the title of the page
+function title_callback($args){
+	printf(
+			'<div>
+				<input name="%1$s[%2$s]" value="%3$s">
 				<p></p>
 				<p class="description">%4$s</p>
 			 </div>',

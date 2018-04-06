@@ -32,9 +32,13 @@ add_action( 'wp_enqueue_scripts', 'frontend_scripts' );
 function admin_scripts(){
 	//Core media script
 	wp_enqueue_media();
-	
-	wp_enqueue_script( 'admin-js', get_template_directory_uri() . '/js/admin.js');
-	wp_enqueue_style( 'admin-css', get_template_directory_uri() . '/css/admin.css' );
+	// Add the color picker css file       
+    wp_enqueue_style( 'wp-color-picker' );
+	// added alpha to colorpicker
+	wp_enqueue_script( 'wp-color-picker-alpha', get_template_directory_uri() . '/js/wp-color-picker-alpha.js', array( 'wp-color-picker' ), $current_version, $in_footer );
+	// Include our custom jQuery file with WordPress Color Picker dependency
+	wp_enqueue_script( 'admin-js', get_template_directory_uri() . '/js/admin.js', array( 'wp-color-picker' ), false, true);
+	wp_enqueue_style( 'admin-css', get_template_directory_uri() . '/css/admin.css' ); 
 }
 add_action( 'admin_enqueue_scripts', 'admin_scripts' );
 

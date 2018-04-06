@@ -31,12 +31,16 @@ body {
   position: fixed;
   top: 0;
   z-index: 1001;
-  background: red;
 }
 .logo {
   width: calc(100% - 200px);
   position: absolute;
   left: 100px;
+  font-family: 'Righteous', cursive;
+  font-size: 60px;
+  font-weight: 900;
+  text-align: center;
+  margin-top: -8px;
 }
 .flag {
   width: 100px;
@@ -94,12 +98,12 @@ body {
  content
  *******/
 #content {
-  margin-top: 50px;
   background: lightgrey;
-  height: calc(100vh - 50px);
+  height: 100vh;
   overflow: hidden;
 }
 #content .entry-content-page {
+  padding-top: 50px;
   height: 100vh;
   overflow: scroll;
   position: relative;
@@ -125,6 +129,7 @@ body {
   background: rgba(255, 255, 255, 1);
 }
 #menu {
+  margin-top: 50px;
   display: inline-block;
   position: fixed;
   z-index: 2;
@@ -222,8 +227,12 @@ body {
     margin-top: -6px;
   }
   #firefoxScroller {
-    overflow: hidden;
-    width: 100%;
+    margin-right: -20px;
+  }
+}
+@supports (-ms-ime-align: auto) {
+  /* Microsoft EdgeV13&14 CSS styles go here */
+  #firefoxScroller {
     margin-right: -20px;
   }
 }
