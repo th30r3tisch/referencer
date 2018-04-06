@@ -211,4 +211,19 @@ body {
   padding: 50px 100px 100px;
   opacity: 0;
   color: white;
+  width: 100%;
+}
+#firefoxScroller {
+  overflow: hidden;
+  width: 100%;
+}
+@-moz-document url-prefix() {
+  #menu {
+    margin-top: -6px;
+  }
+  #firefoxScroller {
+    overflow: hidden;
+    width: 100%;
+    margin-right: -20px;
+  }
 }

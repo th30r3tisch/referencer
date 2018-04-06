@@ -2,13 +2,14 @@
 
 
 var flag;
-var ajaxElementID = "ajax-content";
+var ajaxElementID = "firefoxScroller";
+var ajaxInnerContainer = "ajax-content";
 
 jQuery( window ).resize(function() {
 	if(jQuery('.visible-menu').length === 0){
-  		jQuery('#' + ajaxElementID).parent().css("width", getWindowWidth() + 'px');
+  		jQuery('#' + ajaxElementID).closest('li').css("width", getWindowWidth() + 'px');
 	}else{
-		jQuery('#' + ajaxElementID).parent().css("width", getWindowWidth() - (jQuery('#menu > ul').children('li').length * 30) + 30 + 'px');
+		jQuery('#' + ajaxElementID).closest('li').css("width", getWindowWidth() - (jQuery('#menu > ul').children('li').length * 30) + 30 + 'px');
 	}
 });
 
@@ -28,7 +29,7 @@ jQuery( document ).ready(function() {
 			if(contentIsVisible()){ // content is displayed
 				fadeInMenu();
 				var menuItemNum = jQuery('#menu > ul').children('li').length;
-				jQuery('#' + ajaxElementID).parent().css("width", getWindowWidth() - (menuItemNum * 30) + 30 + 'px'); // shrinks the content container
+				jQuery('#' + ajaxElementID).closest('li').css("width", getWindowWidth() - (menuItemNum * 30) + 30 + 'px'); // shrinks the content container
 				
 			}else{ // no content is visible
 				openMenu();
@@ -36,7 +37,7 @@ jQuery( document ).ready(function() {
 		}else{ // if menu is visible
 			crossToBurger();
 			if(contentIsVisible()){ // content is displayed
-				openContentAnimation(jQuery("#" + ajaxElementID).parent());
+				openContentAnimation(jQuery("#" + ajaxElementID).closest('li'));
 			}else{// no content is visible
 				closeMenu(); 
 			}
@@ -88,8 +89,8 @@ function ajaxCall(pageName, obj){
 		},
 		context: obj,
 		success:function(data) { // inserst the content in the div inserted before
-				jQuery('#ajax-content').html(data);
-				jQuery('#ajax-content').delay(500).animate({
+				jQuery("#" + ajaxInnerContainer).html(data);
+				jQuery("#" + ajaxInnerContainer).delay(500).animate({
 					opacity: '1'
 					}, 500);
 		},
@@ -117,7 +118,7 @@ window.addEventListener('popstate', function(e){
     if (page === null) {
 		closeContent();
     } else {
-		var obj = jQuery("#menu li a:contains('" + page + "')").parent();
+		var obj = jQuery("#menu li a:contains('" + page + "')").closest('li');
 		switchPage(page, obj);
     }
 });
@@ -175,7 +176,7 @@ function crossToBurger(){
 //returns the next menu item position depenting on the element parameter
 function nextMenuItemPosition(obj){
 	if(!contentIsVisible()){
-		jQuery(obj).append('<div id="' + ajaxElementID + '"></div>');
+		jQuery(obj).append('<div id="' + ajaxElementID + '"><div id="' + ajaxInnerContainer + '"></div></div>');
 	}
 	var elementPositionLeft = jQuery(obj).index(); // element position in the menu from the left
 	return elementPositionLeft;
@@ -190,6 +191,6 @@ function fadeInMenu(){
 }
 // content remove animation
 function removeContent(){
-	jQuery("#" + ajaxElementID).parent().css("width", "30px"); // shrinks the content container
+	jQuery("#" + ajaxElementID).closest('li').css("width", "30px"); // shrinks the content container
 	jQuery("#" + ajaxElementID).remove(); // removes the content container
 }
