@@ -149,8 +149,11 @@ body{
 		height: calc(100vh - 50px);
 		display: inline-flex;
 	}
-	li {
+	.menu-item {
 		display: inline-flex;
+		width: 30px;
+		margin-left: -30px;
+		transition: 0.5s;
 		.nav-link{
 			writing-mode: vertical-rl;
 			transform: rotate(180deg);
@@ -159,17 +162,16 @@ body{
 			width: 30px;
 			color: rgba(255,255,255,0);
 			padding: 0px;
-			margin-left: -30px;
-			transition: margin-left 0.5s, color 0.2s, opacity 0.2s;
-			&.collapse-side{
-				margin-left: 0px;
-			}
+			transition: color 0.2s, opacity 0.2s;
 			&.fade-text{
 				color: rgba(255,255,255,1.00);
 			}
 			&:hover{
   				opacity: 1;
 			}
+		}
+		&.collapse-side{
+			margin-left: 0px;
 		}
 	}
 	&:hover .nav-link{

@@ -134,10 +134,13 @@ body {
   height: calc(100vh - 50px);
   display: inline-flex;
 }
-#menu li {
+#menu .menu-item {
   display: inline-flex;
+  width: 30px;
+  margin-left: -30px;
+  transition: 0.5s;
 }
-#menu li .nav-link {
+#menu .menu-item .nav-link {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   height: calc(100vh - 50px);
@@ -145,17 +148,16 @@ body {
   width: 30px;
   color: rgba(255, 255, 255, 0);
   padding: 0px;
-  margin-left: -30px;
-  transition: margin-left 0.5s, color 0.2s, opacity 0.2s;
+  transition: color 0.2s, opacity 0.2s;
 }
-#menu li .nav-link.collapse-side {
-  margin-left: 0px;
-}
-#menu li .nav-link.fade-text {
+#menu .menu-item .nav-link.fade-text {
   color: rgba(255, 255, 255, 1.00);
 }
-#menu li .nav-link:hover {
+#menu .menu-item .nav-link:hover {
   opacity: 1;
+}
+#menu .menu-item.collapse-side {
+  margin-left: 0px;
 }
 #menu:hover .nav-link {
   opacity: 0.3;
