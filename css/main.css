@@ -128,6 +128,24 @@ body {
 #content #menuCloseBtn:hover {
   background: rgba(255, 255, 255, 1);
 }
+#content #startpage {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  height: 100%;
+  padding-top: 200px;
+}
+#content #startpage div {
+  text-align: right;
+}
+#content #startpage div.welcomeTitle {
+  font-size: 100px;
+  font-weight: 700;
+}
+#content #startpage div.welcomeSubtitle {
+  font-size: 40px;
+  font-weight: 500;
+}
 #menu {
   margin-top: 50px;
   display: inline-block;

@@ -46,6 +46,8 @@ function initialise_general_options(){
 	$default_values = array(
 		'page_description'		=> '',
 		'headerTitle'			=> '',
+		'welcomeTitle'			=> '',
+		'welcomeSubtitle'		=> ''
 	);
 	
 	// parse option value into predefined keys
@@ -84,6 +86,34 @@ function initialise_general_options(){
 			'value'			=> esc_attr($data['headerTitle']),
 			'option_name' 	=> $option_name,
 			'description'	=> 'Choose a title. It is displayed at the page header like a logo'
+		)
+	);
+	// add option for the title
+	add_settings_field(
+		'welcomeTitle',
+		'Welcome title',
+		'title_callback',
+		$tabUrl,
+		$mainSection,
+		array(
+			'name'			=> 'welcomeTitle',
+			'value'			=> esc_attr($data['welcomeTitle']),
+			'option_name' 	=> $option_name,
+			'description'	=> 'Choose the welcome title. It is displayed just at the start page in the middle, right.'
+		)
+	);
+	// add option for the title
+	add_settings_field(
+		'welcomeSubtitle',
+		'Welcome subtitle',
+		'title_callback',
+		$tabUrl,
+		$mainSection,
+		array(
+			'name'			=> 'welcomeSubtitle',
+			'value'			=> esc_attr($data['welcomeSubtitle']),
+			'option_name' 	=> $option_name,
+			'description'	=> 'Choose the welcome subtitle. It is displayed just at the start page below the welcome title'
 		)
 	);
 }
