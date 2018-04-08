@@ -15,7 +15,8 @@ function initialise_style_content_options(){
 	);
 	
 	$default_values = array(
-
+		'color_welcomeTitle'		=> '',
+		'color_welcomeSubTitle'		=> ''
 	);
 	
 	// parse option value into predefined keys
@@ -27,6 +28,36 @@ function initialise_style_content_options(){
 		'style_content_callback',				// Callback used to render the description of the section
 		$tabUrl									// Page on which to add this section of options
 	); 
+	
+	// add option to change the header background between image and color
+	add_settings_field(
+		'color_welcomeTitle',
+		'Title color',
+		'color_callback',
+		$tabUrl,
+		$mainSection,
+		array(
+			'name'			=> 'color_welcomeTitle',
+			'value'			=> esc_attr($data['color_welcomeTitle']),
+			'option_name' 	=> $option_name,
+			'description'	=> 'Choose the color of the title.'
+		)
+	);
+	
+	// add option to change the header background between image and color
+	add_settings_field(
+		'color_welcomeSubTitle',
+		'Subtitle Color',
+		'color_callback',
+		$tabUrl,
+		$mainSection,
+		array(
+			'name'			=> 'color_welcomeSubTitle',
+			'value'			=> esc_attr($data['color_welcomeSubTitle']),
+			'option_name' 	=> $option_name,
+			'description'	=> 'Choose the color of the subtitle.'
+		)
+	);
 }
 add_action ('admin_init', 'initialise_style_content_options');
 

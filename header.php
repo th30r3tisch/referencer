@@ -46,6 +46,8 @@
 				display: none;
 				<?php } ?>
 			}
+			.welcomeTitle{color: <?php echo $styleContent['color_welcomeTitle'] ?>;}
+			.welcomeSubtitle{color: <?php echo $styleContent['color_welcomeSubTitle'] ?>;}
 		</style>
 		<script>
 		var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';
@@ -60,7 +62,7 @@
 					<div class="icon-bar"></div>
 				</button>
 			</div>
-			<div class="logo"><?php echo $default['headerTitle'] ?><?php echo $styleHeader['header_line'] ?></div>
+			<div class="logo"><?php echo $default['headerTitle'] ?></div>
 			<div class="flag">
 				<span>
 					<img src="<?php bloginfo('template_directory'); ?>/images/german-flag.svg" alt="german-flag">
