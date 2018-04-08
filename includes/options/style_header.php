@@ -75,9 +75,23 @@ function initialise_style_header_options(){
 			'description'	=> 'Choose the color of the burger menu in the header.'
 		)
 	);
+	// display header line
+	add_settings_field(
+		'header_line',
+		'Header bottom line',
+		'radio_callback',
+		$tabUrl,
+		$mainSection,
+		array(
+			'name'			=> 'header_line',
+			'value'			=> esc_attr($data['header_line']),
+			'option_name' 	=> $option_name,
+			'description'	=> 'Should be there a line below the header?'
+		)
+	);
 	add_settings_field(
 		'color_header_line',
-		'Menu bottom line color',
+		'Bottom line color',
 		'color_callback',
 		$tabUrl,
 		$mainSection,
@@ -85,9 +99,40 @@ function initialise_style_header_options(){
 			'name'			=> 'color_header_line',
 			'value'			=> esc_attr($data['color_header_line']),
 			'option_name' 	=> $option_name,
-			'description'	=> 'Choose the color of the line below the header.'
+			'description'	=> 'Choose the color of the line below the header.',
+			'dependency'	=> esc_attr($data['header_line'])
 		)
 	);
+	// display flags?
+	add_settings_field(
+		'translatable',
+		'Flags',
+		'radio_callback',
+		$tabUrl,
+		$mainSection,
+		array(
+			'name'			=> 'translatable',
+			'value'			=> esc_attr($data['translatable']),
+			'option_name' 	=> $option_name,
+			'description'	=> 'If you want to translate your page this should be "Yes" otherwhise "No"'
+		)
+	);
+	// display flags?
+	add_settings_field(
+		'shadow_flag',
+		'Flag shadow',
+		'radio_callback',
+		$tabUrl,
+		$mainSection,
+		array(
+			'name'			=> 'shadow_flag',
+			'value'			=> esc_attr($data['shadow_flag']),
+			'option_name' 	=> $option_name,
+			'description'	=> 'Do you want a shadow behind the flags?',
+			'dependency'	=> esc_attr($data['translatable'])
+		)
+	);
+
 }
 add_action ('admin_init', 'initialise_style_header_options');
 
@@ -110,5 +155,22 @@ function color_callback($args){
 			$args['value'],
 			$args['description']
 			);
+}
+
+// option for radio buttons
+function radio_callback($args){
+	printf(
+		'Yes
+		 <input type="radio" name="%1$s[%2$s]" value="true" %3$s/>
+		 <input type="radio" name="%1$s[%2$s]" value="false" %4$s/> 
+		 No
+		 <p></p>
+		 <p class="description">%5$s</p>',
+		$args['option_name'],
+		$args['name'],
+		checked('true', $args['value'], false),	 	// returns "checked" if value equals "true"
+		checked('false', $args['value'], false),	// returns "checked" if value equals "false"
+		$args['description']
+	);
 }
 
