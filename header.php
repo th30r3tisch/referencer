@@ -11,7 +11,8 @@
 <html lang="de">
 
 	<?php 
-		$style = get_option( "style_options" ); 
+		$styleHeader = get_option( "header_style_options" );
+		$styleContent = get_option( "content_style_options" );
 		$default = get_option( "general_options" );
 	?>
 	
@@ -23,8 +24,9 @@
 		<?php wp_head();?>
 
 		<style>
-			#header{background: <?php echo $style['color_header'] ?>;}
-			.logo{color: <?php echo $style['color_title'] ?>;}
+			#header{background: <?php echo $styleHeader['color_header'] ?>; border-bottom: 2px solid <?php echo $styleHeader['color_header_line'] ?>;}
+			.logo{color: <?php echo $styleHeader['color_title'] ?>;}
+			.menu .icon-bar{background-color: <?php echo $styleHeader['color_burger'] ?>;}
 		</style>
 		<script>
 		var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';

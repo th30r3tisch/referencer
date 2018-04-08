@@ -15,10 +15,11 @@ class ReferencerOptions {
 		
 	function buildPage($menuSlug) {
 		
-		$generalTabUrl = $menuSlug.'&tab=general';
-		$stylingTabUrl = $menuSlug.'&tab=styling';
-		$helpTabUrl = $menuSlug.'&tab=help';
-		$socialTabUrl = $menuSlug.'&tab=social_links';
+		$menuSlug = $menuSlug.'&tab=';
+		$generalTabUrl = $menuSlug.'general';
+		$stylingTabUrl = $menuSlug.'styling';
+		$helpTabUrl = $menuSlug.'help';
+		$socialTabUrl = $menuSlug.'social_links';
 		
 		//check if the user has the required capability
 		if (!current_user_can('manage_options'))
