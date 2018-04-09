@@ -100,7 +100,11 @@ body {
  content
  *******/
 #content {
-  background: lightgrey;
+  background-image: url("../images/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right;
+  background-size: cover;
   height: 100vh;
   overflow: hidden;
 }

@@ -4,3 +4,10 @@
 	width: 60%;
 	height: 100px;
 }
+#style_options_form table, #general_options_form table{
+	background: #fffdef;
+	box-shadow: 2px 2px 5px;
+	padding: 10px;
+	border-collapse: separate;
+	border-spacing: 60px 15px;
+}

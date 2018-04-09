@@ -48,6 +48,7 @@
 			}
 			.welcomeTitle{color: <?php echo $styleContent['color_welcomeTitle'] ?>;}
 			.welcomeSubtitle{color: <?php echo $styleContent['color_welcomeSubTitle'] ?>;}
+			#content{ background-image: <?php if($styleContent['background_image']) echo ('url("' . $styleContent['background_image'] . '")')?>;
 		</style>
 		<script>
 		var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';

@@ -16,7 +16,8 @@ function initialise_style_content_options(){
 	
 	$default_values = array(
 		'color_welcomeTitle'		=> '',
-		'color_welcomeSubTitle'		=> ''
+		'color_welcomeSubTitle'		=> '',
+		'background_image'			=> ''
 	);
 	
 	// parse option value into predefined keys
@@ -58,6 +59,21 @@ function initialise_style_content_options(){
 			'description'	=> 'Choose the color of the subtitle.'
 		)
 	);
+	
+	// add option to  upload a picture from the wordpress mediathek
+	add_settings_field(
+		'background_image',
+		'Background picture',
+		'backgroundPicUpload_callback',
+		$tabUrl,
+		$mainSection,
+		array(
+			'name'			=> 'background_image',
+			'value'			=> esc_attr($data['background_image']),
+			'option_name' 	=> $option_name,
+			'description'	=> 'Select the background image behind the content.'
+		)
+	);
 }
 add_action ('admin_init', 'initialise_style_content_options');
 
@@ -65,4 +81,20 @@ add_action ('admin_init', 'initialise_style_content_options');
 // displays a description under the main_styling_section
 function style_content_callback(){
 	echo '<p>Here you can change the style of the contents.</p>';
+}
+
+// add option to  upload a picture from the wordpress mediathek
+function backgroundPicUpload_callback($args){
+	printf(
+			'<div id="imageDialog">
+				<input class="upload-button" type="button" class="button" value="Choose Image" />
+				<input type="text" name="%1$s[%2$s]" value="%3$s" size="62"/>
+				<p></p>
+				<p class="description">%4$s</p>
+			 </div>',
+			$args['option_name'],
+			$args['name'],
+			$args['value'],
+			$args['description']
+			);
 }

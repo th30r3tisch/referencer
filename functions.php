@@ -65,7 +65,7 @@ add_action( 'after_setup_theme', 'referencer_localisation' );
 function register_dshboard_menu_section() {
 	add_menu_page(
 			'referencer options', 											//The text to be displayed in the title tags of the page
-			'RefO', 														//The text to be used for the menu
+			'Referencer', 													//The text to be used for the menu
 			'administrator', 												//The capability
 			'referencer_theme_options' , 									//The slug name to refer to this menu
 			'create_main_menu_option', 										//The function to be called to output the content
