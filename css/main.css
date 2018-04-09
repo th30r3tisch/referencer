@@ -100,7 +100,7 @@ body {
  content
  *******/
 #content {
-  background-image: url("../images/background.jpg");
+  background-image: url("../images/background-min.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: right;

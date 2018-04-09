@@ -88,7 +88,7 @@ function backgroundPicUpload_callback($args){
 	printf(
 			'<div id="imageDialog">
 				<input class="upload-button" type="button" class="button" value="Choose Image" />
-				<input type="text" name="%1$s[%2$s]" value="%3$s" size="62"/>
+				<input id="%1$s" type="text" name="%1$s[%2$s]" value="%3$s" size="62"/>
 				<p></p>
 				<p class="description">%4$s</p>
 			 </div>',
