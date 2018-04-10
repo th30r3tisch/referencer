@@ -4,7 +4,7 @@ require_once( __DIR__. '/options/styling.php');
 require_once( __DIR__. '/options/help.php');
 require_once( __DIR__. '/options/social.php');
 require_once( __DIR__. '/options/general.php');
-
+require_once( __DIR__. '/options/callbacks.php');
 
 class ReferencerOptions {
 	

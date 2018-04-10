@@ -118,38 +118,3 @@ function initialise_general_options(){
 	);
 }
 add_action ('admin_init', 'initialise_general_options');
-
-// displays a description under the main_styling_section
-function main_callback(){
-	echo '<p>Here you can make some general changes</p>';
-}
-
-// option to change meta description
-function input_callback($args){
-	printf(
-			'<div>
-				<textarea name="%1$s[%2$s]" value="%3$s">%3$s</textarea>
-				<p></p>
-				<p class="description">%4$s</p>
-			 </div>',
-			$args['option_name'],
-			$args['name'],
-			$args['value'],
-			$args['description']
-			);
-}
-
-// option to change the title of the page
-function title_callback($args){
-	printf(
-			'<div>
-				<input name="%1$s[%2$s]" value="%3$s">
-				<p></p>
-				<p class="description">%4$s</p>
-			 </div>',
-			$args['option_name'],
-			$args['name'],
-			$args['value'],
-			$args['description']
-			);
-}

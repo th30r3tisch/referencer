@@ -153,15 +153,16 @@ body{
 		flex-flow: column;
 		justify-content: center;
 		height: 100%;
-		padding-top: 200px;
+		padding-top: 20vh;
+		padding-right: 6vw;
 		div{
 			text-align: right;
 			&.welcomeTitle{
-				font-size: 100px;
+				font-size: 12vh;
 				font-weight: 700;
 			}
 			&.welcomeSubtitle{
-				font-size: 40px;
+				font-size: 5vh;
 				font-weight: 500;
 			}
 		}
@@ -319,4 +320,20 @@ body{
   #firefoxScroller{
 		margin-right: -20px;
 	} 
+}
+
+@media (max-width: 550px) {
+	#content .entry-content-page {
+    	padding: 50px 20px;
+		#startpage {
+			div{
+				&.welcomeTitle{
+					font-size: 12vw;
+				}
+				&.welcomeSubtitle{
+					font-size: 5vw;
+				}
+			}
+		}
+	}
 }

@@ -139,17 +139,18 @@ body {
   flex-flow: column;
   justify-content: center;
   height: 100%;
-  padding-top: 200px;
+  padding-top: 20vh;
+  padding-right: 6vw;
 }
 #content #startpage div {
   text-align: right;
 }
 #content #startpage div.welcomeTitle {
-  font-size: 100px;
+  font-size: 12vh;
   font-weight: 700;
 }
 #content #startpage div.welcomeSubtitle {
-  font-size: 40px;
+  font-size: 5vh;
   font-weight: 500;
 }
 #menu {
@@ -284,5 +285,16 @@ body {
   /* Microsoft EdgeV13&14 CSS styles go here */
   #firefoxScroller {
     margin-right: -20px;
+  }
+}
+@media (max-width: 550px) {
+  #content .entry-content-page {
+    padding: 50px 20px;
+  }
+  #content .entry-content-page #startpage div.welcomeTitle {
+    font-size: 12vw;
+  }
+  #content .entry-content-page #startpage div.welcomeSubtitle {
+    font-size: 5vw;
   }
 }

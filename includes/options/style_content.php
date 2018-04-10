@@ -64,7 +64,7 @@ function initialise_style_content_options(){
 	add_settings_field(
 		'background_image',
 		'Background picture',
-		'backgroundPicUpload_callback',
+		'picUpload_callback',
 		$tabUrl,
 		$mainSection,
 		array(
@@ -76,25 +76,3 @@ function initialise_style_content_options(){
 	);
 }
 add_action ('admin_init', 'initialise_style_content_options');
-
-
-// displays a description under the main_styling_section
-function style_content_callback(){
-	echo '<p>Here you can change the style of the contents.</p>';
-}
-
-// add option to  upload a picture from the wordpress mediathek
-function backgroundPicUpload_callback($args){
-	printf(
-			'<div id="imageDialog">
-				<input class="upload-button" type="button" class="button" value="Choose Image" />
-				<input id="%1$s" type="text" name="%1$s[%2$s]" value="%3$s" size="62"/>
-				<p></p>
-				<p class="description">%4$s</p>
-			 </div>',
-			$args['option_name'],
-			$args['name'],
-			$args['value'],
-			$args['description']
-			);
-}

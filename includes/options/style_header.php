@@ -21,7 +21,8 @@ function initialise_style_header_options(){
 		'shadow_flag'		=> '',
 		'translatable'		=> '',
 		'header_line'		=> '',
-		'color_header_line' => ''
+		'color_header_line' => '',
+		'headerLogo_image' 	=> ''
 	);
 	
 	// parse option value into predefined keys
@@ -132,45 +133,22 @@ function initialise_style_header_options(){
 			'dependency'	=> esc_attr($data['translatable'])
 		)
 	);
+	
+	// add option to  upload a picture from the wordpress mediathek
+	add_settings_field(
+		'headerLogo_image',
+		'Header logo image',
+		'picUpload_callback',
+		$tabUrl,
+		$mainSection,
+		array(
+			'name'			=> 'headerLogo_image',
+			'value'			=> esc_attr($data['headerLogo_image']),
+			'option_name' 	=> $option_name,
+			'description'	=> 'Select the image (logo -> <strong>90x90px</strong>) to display instead of the Title at small devices.'
+		)
+	);
 
 }
 add_action ('admin_init', 'initialise_style_header_options');
-
-// displays a description under the main_styling_section
-function header_style_callback(){
-	echo '<p>Here you can change the style of the header.</p>';
-}
-
-
-// option to change colors
-function color_callback($args){
-	printf(
-			'<div>
-				<input name="%1$s[%2$s]" data-alpha="true" class="color-field" value="%3$s">
-				<p></p>
-				<p class="description">%4$s</p>
-			 </div>',
-			$args['option_name'],
-			$args['name'],
-			$args['value'],
-			$args['description']
-			);
-}
-
-// option for radio buttons
-function radio_callback($args){
-	printf(
-		'Yes
-		 <input type="radio" name="%1$s[%2$s]" value="true" %3$s/>
-		 <input type="radio" name="%1$s[%2$s]" value="false" %4$s/> 
-		 No
-		 <p></p>
-		 <p class="description">%5$s</p>',
-		$args['option_name'],
-		$args['name'],
-		checked('true', $args['value'], false),	 	// returns "checked" if value equals "true"
-		checked('false', $args['value'], false),	// returns "checked" if value equals "false"
-		$args['description']
-	);
-}
 
