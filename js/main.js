@@ -13,15 +13,32 @@ jQuery( window ).resize(function() {
 	}
 });
 
+//detects if the bottom of the page is visible
+jQuery('.entry-content-page').scroll(function(){
+        //console.log(jQuery(this).scrollTop()+' + '+ jQuery(this).height() +' = '+ (jQuery(this).scrollTop() + jQuery(this).height() + 83)   +' _ '+ jQuery(this)[0].scrollHeight );
+        detectScroll(this);
+    });
+
 
 jQuery( document ).ready(function() {
 	"use strict";
-	
+	jQuery(document).ajaxComplete(function( event, xhr, settings ) {
+  		if(jQuery('#' + ajaxInnerContainer)[0].scrollHeight < jQuery('#content').height()){ 
+			jQuery('#footer').css('display', 'inline-flex');
+		}else{
+			document.addEventListener('scroll', function (event) {
+				if (event.target.id === 'ajax-content') { // or any other filtering condition 
+					detectScroll(event.target);
+				}
+			}, true /*Capture event*/);
+		}
+	});
+	detectScroll(jQuery('.entry-content-page'));
 	// click on menu close button
 	jQuery('#menuCloseBtn').click(function(){
 		closeContent();
 	});
-	
+
 	// click on burger menu
 	jQuery('.menu button').click(function(){
 		if(jQuery('.visible-menu').length === 0){ // if menu is not visible
@@ -90,6 +107,7 @@ function ajaxCall(pageName, obj){
 		context: obj,
 		success:function(data) { // inserst the content in the div inserted before
 				jQuery("#" + ajaxInnerContainer).html(data);
+				jQuery('#footer').css('display', 'none');
 				jQuery("#" + ajaxInnerContainer).delay(500).animate({
 					opacity: '1'
 					}, 500);
@@ -123,7 +141,12 @@ window.addEventListener('popstate', function(e){
     }
 });
 
-
+//
+function detectScroll(scrollObj){
+	if(jQuery(scrollObj).scrollTop() + jQuery(scrollObj).height() + 133 >= jQuery(scrollObj)[0].scrollHeight - 50){
+            jQuery('#footer').css('display', 'inline-flex');
+        }else{jQuery('#footer').hide();}
+}
 // shrinks the content element and removes the content
 function closeContent(){
 	burgerToCross();

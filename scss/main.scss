@@ -123,7 +123,7 @@ body{
 	height: 100vh;
 	overflow: hidden;
 	.entry-content-page{
-		padding: 50px 100px;
+		padding: 100px 100px;
 		height: 100vh;
 		overflow: scroll;
 		position: relative;
@@ -289,6 +289,23 @@ body{
 	}
 }
 
+/*******
+ footer
+*******/
+#footer{
+	display: none;
+	position: absolute;
+    bottom: 10px;
+	color: white;
+	z-index: 10;
+	&>div{
+		width: 50vw;
+		text-align: center;
+		a{
+			color: white;
+		}
+	}
+}
 
 /*******
  ajax
@@ -297,7 +314,7 @@ body{
 #ajax-content{
 	overflow: scroll;
 	height: 100vh;
-	padding: 50px 100px 100px;
+	padding: 50px 100px 150px;
 	opacity: 0;
 	color: white;
 	width: 100%;
@@ -324,7 +341,7 @@ body{
 
 @media (max-width: 550px) {
 	#content .entry-content-page {
-    	padding: 50px 20px;
+    	padding: 100px 20px;
 		#startpage {
 			div{
 				&.welcomeTitle{
@@ -334,6 +351,12 @@ body{
 					font-size: 5vw;
 				}
 			}
+		}
+	}
+	#footer{
+		display: block;
+		&>div{
+			width: 100vw;
 		}
 	}
 }
