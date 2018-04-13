@@ -79,12 +79,18 @@ function create_main_menu_option(){
 	new ReferencerOptions('referencer_theme_options');
 }
 
+ function picture_gallery_shortcode() {
+	include("picture-gallery-shortcode.php");
+}
+add_shortcode('picture-gallery', 'picture_gallery_shortcode');
+
+
 //load pages with ajax
 function fetch_modal_content() {
   if ( isset($_REQUEST) ) {
     $page_name = $_REQUEST['pageName'];
  	$page = get_page_by_title( $page_name[0] );
-	$content = apply_filters('the_content', $page->post_content); 
+	$content = apply_filters('the_content', $page->post_content);
 	echo $content;
   }
   die();

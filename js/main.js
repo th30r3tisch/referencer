@@ -143,7 +143,7 @@ window.addEventListener('popstate', function(e){
 
 //
 function detectScroll(scrollObj){
-	if(jQuery(scrollObj).scrollTop() + jQuery(scrollObj).height() + 133 >= jQuery(scrollObj)[0].scrollHeight - 50){
+	if(jQuery(scrollObj).scrollTop() + jQuery(scrollObj).height() + 135 >= jQuery(scrollObj)[0].scrollHeight - 50){
             jQuery('#footer').css('display', 'inline-flex');
         }else{jQuery('#footer').hide();}
 }

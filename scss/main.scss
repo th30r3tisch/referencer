@@ -123,10 +123,11 @@ body{
 	height: 100vh;
 	overflow: hidden;
 	.entry-content-page{
-		padding: 100px 100px;
+		padding: 100px 20vw;
 		height: 100vh;
 		overflow: scroll;
 		position: relative;
+		color: white;
 	}
 	#menuCloseBtn{
 		background: rgba(255, 255, 255, 0.5);
@@ -136,7 +137,7 @@ body{
 		position: fixed;
 		bottom: 10px;
 		right: 10px;
-		z-index: 10;
+		z-index: 15;
 		height: 34px;
 		i {
 			margin-top: -3px;
@@ -355,7 +356,7 @@ body{
 		}
 	}
 	#footer{
-		display: block;
+		display: block !important;
 		&>div{
 			width: 100vw;
 		}
