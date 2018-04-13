@@ -7,14 +7,16 @@
  * @since Referencer 0.1.0
  */
 
+$default = get_option( "general_options" );
+
 ?>
 
 	<div id="footer">
 		<div class="d-none d-sm-block">
-		Copyright © 2018 &nbsp; &nbsp; Theodor Günther
+			<?php echo $default['footer_text'] ?>
 		</div>
 		<div class="d-sm-none">
-		© 2018  &nbsp; T.Günther
+			<?php echo $default['footer_text_mobile'] ?>
 		</div>
 		<div>
 			<div class="linksOfRight">

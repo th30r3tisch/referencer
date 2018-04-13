@@ -31,7 +31,7 @@ function initialise_style_header_options(){
 	add_settings_section(
 		$mainSection,							// ID used to identify this section and with which to register options
 		'Header',								// Title to be displayed on the administration page
-		'header_style_callback',				// Callback used to render the description of the section
+		'style_header_callback',				// Callback used to render the description of the section
 		$tabUrl									// Page on which to add this section of options
 	);  
 	

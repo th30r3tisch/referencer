@@ -4,12 +4,16 @@ function style_content_callback(){
 	echo '<p>Here you can change the style of the contents.</p>';
 }
 // displays a description under the main_styling_section
-function header_style_callback(){
+function style_header_callback(){
 	echo '<p>Here you can change the style of the header.</p>';
 }
 // displays a description under the main_styling_section
 function main_callback(){
 	echo '<p>Here you can make some general changes</p>';
+}
+// displays a description under the main_styling_section
+function style_footer_callback(){
+	echo '<p>Here you can change the style of the footer.</p>';
 }
 
 // add option to  upload a picture from the wordpress mediathek

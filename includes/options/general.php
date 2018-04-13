@@ -47,7 +47,9 @@ function initialise_general_options(){
 		'page_description'		=> '',
 		'headerTitle'			=> '',
 		'welcomeTitle'			=> '',
-		'welcomeSubtitle'		=> ''
+		'welcomeSubtitle'		=> '',
+		'footer_text'			=> '',
+		'footer_text_mobile'	=> ''
 	);
 	
 	// parse option value into predefined keys
@@ -114,6 +116,34 @@ function initialise_general_options(){
 			'value'			=> esc_attr($data['welcomeSubtitle']),
 			'option_name' 	=> $option_name,
 			'description'	=> 'Choose the welcome subtitle. It is displayed just at the start page below the welcome title'
+		)
+	);
+	// add option for the footer
+	add_settings_field(
+		'footer_text',
+		'Footer text',
+		'title_callback',
+		$tabUrl,
+		$mainSection,
+		array(
+			'name'			=> 'footer_text',
+			'value'			=> esc_attr($data['footer_text']),
+			'option_name' 	=> $option_name,
+			'description'	=> 'Choose a text displayed in the footer left side.'
+		)
+	);
+	// add option for the footer
+	add_settings_field(
+		'footer_text_mobile',
+		'Footer text mobile',
+		'title_callback',
+		$tabUrl,
+		$mainSection,
+		array(
+			'name'			=> 'footer_text_mobile',
+			'value'			=> esc_attr($data['footer_text_mobile']),
+			'option_name' 	=> $option_name,
+			'description'	=> 'Choose a text displayed in the footer left side and >strong>just in mobile view </strong>.'
 		)
 	);
 }

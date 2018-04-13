@@ -32,3 +32,4 @@ class Styling {
 
 include('style_header.php');
 include('style_content.php');
+include('style_footer.php');

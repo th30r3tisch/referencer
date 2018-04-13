@@ -64,7 +64,9 @@ function intialize_help_options() {
 				There are some known issues you should consider until they are fixed.</br>
 				<strong>1.</strong> Do not make a link to the home page and don\'t insert a page twice in the menu. This will messup the ajax page load.</br>
 				<strong>2.</strong> Take care when making a new page. The page name (topic) has to be the exact same like in the page link. (eg. : Page-name -> /page-name)
-				If not the page wont load in the menu.'
+				If not the page wont load in the menu.</br>
+				<strong>3.</strong> This theme requires an imprint as well as a privacy policy. Just make a page "Datenschutzerklärung" and "Impressum" 
+				(the names are important because atm the link is just hardcoded!). This pages are automatically linked in the footer.'
 			)
 		);
 	
