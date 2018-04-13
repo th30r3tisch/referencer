@@ -14,19 +14,20 @@
 			'category_name'		=> "picture-gallery"
 			);
 			$postslist = get_posts( $args );
-		foreach ($postslist as $post) :  setup_postdata($post); 
-		?>  
-			<a href="<?php echo get_permalink($post->ID); ?>">
-				<?php echo get_the_post_thumbnail( $post->ID, 'thumbnail'); ?>
-			</a>
-		<div>
-			<?php $post_tags = get_the_tags($post->ID);
- 
-				if ( $post_tags ) {
+	foreach ($postslist as $post) :  setup_postdata($post); 
+	?>  
+	<div class="image-tile">
+		<a href="<?php echo get_permalink($post->ID); ?>">
+			<?php echo get_the_post_thumbnail( $post->ID, 'thumbnail'); ?>
+		</a>
+		<?php $post_tags = get_the_tags($post->ID);
+			if ( $post_tags ) {
+				?><div><?php
     			foreach( $post_tags as $tag ) {
-    			echo $tag->name . ' '; 
+					echo $tag->name . ' | '; 
     			}
-				} ?>
-		</div>
-		<?php endforeach; ?>
+				?></div><?php
+			} ?>
+	</div>
+	<?php endforeach; ?>
 </div>

@@ -79,11 +79,11 @@ function create_main_menu_option(){
 	new ReferencerOptions('referencer_theme_options');
 }
 
+// added shortcode for the picture gallery
  function picture_gallery_shortcode() {
 	include("picture-gallery-shortcode.php");
 }
 add_shortcode('picture-gallery', 'picture_gallery_shortcode');
-
 
 //load pages with ajax
 function fetch_modal_content() {
