@@ -19,6 +19,12 @@ jQuery('.entry-content-page').scroll(function(){
         detectScroll(this);
     });
 
+// scrolls the modal to the info part
+jQuery('#modal').on('click', '.downToInfo', function(){
+	jQuery('#modal').animate({
+        scrollTop: jQuery("h2").offset().top
+    }, 1000);
+});
 
 jQuery( document ).ready(function() {
 	"use strict";
