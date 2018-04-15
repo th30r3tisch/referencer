@@ -102,7 +102,7 @@ add_action( 'wp_ajax_nopriv_fetch_page_content', 'fetch_page_content' );
 function fetch_modal_content() {
   if ( isset($_REQUEST) ) {
     $post_id = $_REQUEST['postID'];
-	include("single.php");
+	include("single-picture-gallery.php");
   }
   die();
 }
