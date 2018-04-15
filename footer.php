@@ -29,6 +29,15 @@ $default = get_option( "general_options" );
 			</div>
 		</div>
 	</div>
+
+	<div id="modal" class="modal fade">
+	  <div class="modal-dialog">
+		<div id="modal_target" class="modal-content">
+
+		</div>
+	  </div>
+	</div>
+
 	<?php wp_footer(); ?>
 	</body>
 </html>

@@ -86,12 +86,23 @@ function create_main_menu_option(){
 add_shortcode('picture-gallery', 'picture_gallery_shortcode');
 
 //load pages with ajax
-function fetch_modal_content() {
+function fetch_page_content() {
   if ( isset($_REQUEST) ) {
     $page_name = $_REQUEST['pageName'];
  	$page = get_page_by_title( $page_name[0] );
 	$content = apply_filters('the_content', $page->post_content);
 	echo $content;
+  }
+  die();
+}
+add_action( 'wp_ajax_fetch_page_content', 'fetch_page_content' );
+add_action( 'wp_ajax_nopriv_fetch_page_content', 'fetch_page_content' );
+
+
+function fetch_modal_content() {
+  if ( isset($_REQUEST) ) {
+    $post_id = $_REQUEST['postID'];
+	include("single.php");
   }
   die();
 }

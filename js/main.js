@@ -101,7 +101,7 @@ function ajaxCall(pageName, obj){
 	jQuery.ajax({
 		url: ajaxurl,
 		data: {
-		  'action' : 'fetch_modal_content',
+		  'action' : 'fetch_page_content',
 		  'pageName' : pageName
 		},
 		context: obj,
@@ -117,6 +117,24 @@ function ajaxCall(pageName, obj){
 		}
 	});
 }
+
+
+jQuery('#content').on("click", '.image-tile', function(e) {
+	e.preventDefault();
+  	var postID = jQuery(this).attr('id');
+
+  	jQuery.ajax({
+    	url: ajaxurl,
+    	data: {
+      		'action' : 'fetch_modal_content',
+      		'postID' : postID
+      	},
+    	success:function(data) {
+      		jQuery('#modal_target').html(data);
+      		jQuery('#modal').modal('show');
+    	}
+  	});
+});
 
 // animates the appearing pages
 function openContentAnimation(obj){

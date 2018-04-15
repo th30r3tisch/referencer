@@ -16,7 +16,7 @@
 			$postslist = get_posts( $args );
 	foreach ($postslist as $post) :  setup_postdata($post); 
 	?>  
-	<div class="image-tile">
+	<div class="image-tile" id="<?php echo $post->ID; ?>">
 		<a href="<?php echo get_permalink($post->ID); ?>">
 			<?php echo get_the_post_thumbnail( $post->ID, 'thumbnail'); ?>
 		</a>
