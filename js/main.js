@@ -67,6 +67,7 @@ jQuery( document ).ready(function() {
 		}
 	});
 	
+	slideTile();
 	
 	// click on menu item
 	jQuery('#menu a.nav-link, #menu a.dropdown-item').click(function(e){
@@ -117,6 +118,7 @@ function ajaxCall(pageName, obj){
 				jQuery("#" + ajaxInnerContainer).delay(500).animate({
 					opacity: '1'
 					}, 500);
+				slideTile();
 		},
 		error: function () {
 		  alert("error");
@@ -165,7 +167,16 @@ window.addEventListener('popstate', function(e){
     }
 });
 
-//
+// slides in the image tiles
+function slideTile(){
+	jQuery('.image-tile').each(function(index){
+		jQuery(this).delay(50*index).animate({
+			marginTop: '3px'
+			}, 1000);
+	});
+}
+
+// detects when the page is at the bottom
 function detectScroll(scrollObj){
 	if(jQuery(scrollObj).scrollTop() + jQuery(scrollObj).height() + 135 >= jQuery(scrollObj)[0].scrollHeight - 50){
             jQuery('#footer').css('display', 'inline-flex');
