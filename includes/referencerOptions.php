@@ -5,6 +5,7 @@ require_once( __DIR__. '/options/help.php');
 require_once( __DIR__. '/options/social.php');
 require_once( __DIR__. '/options/general.php');
 require_once( __DIR__. '/options/callbacks.php');
+require_once( __DIR__. '/options/reference_shortcode_opt.php');
 
 class ReferencerOptions {
 	
@@ -20,6 +21,7 @@ class ReferencerOptions {
 		$stylingTabUrl = $menuSlug.'styling';
 		$helpTabUrl = $menuSlug.'help';
 		$socialTabUrl = $menuSlug.'social_links';
+		$shortcodeUrl = $menuSlug.'shortcode';
 		
 		//check if the user has the required capability
 		if (!current_user_can('manage_options'))
@@ -39,6 +41,7 @@ class ReferencerOptions {
 				<a href="<?php echo '?page='.$generalTabUrl ?>" class="nav-tab <?php echo $active_tab == 'general' ? 'nav-tab-active' : ''; ?>">General</a>
 	            <a href="<?php echo '?page='.$stylingTabUrl ?>" class="nav-tab <?php echo $active_tab == 'styling' ? 'nav-tab-active' : ''; ?>">Styles</a>
 				<a href="<?php echo '?page='.$socialTabUrl ?>" class="nav-tab <?php echo $active_tab == 'social_links' ? 'nav-tab-active' : ''; ?>">Social</a>
+				<a href="<?php echo '?page='.$shortcodeUrl ?>" class="nav-tab <?php echo $active_tab == 'shortcode' ? 'nav-tab-active' : ''; ?>">Shortcode</a>
 	            <a href="<?php echo '?page='.$helpTabUrl ?>" class="nav-tab <?php echo $active_tab == 'help' ? 'nav-tab-active' : ''; ?>">Help</a>
         	</h2>
 			  
@@ -50,7 +53,9 @@ class ReferencerOptions {
 				new Help($helpTabUrl);
 			} elseif ($active_tab == 'social_links') {
 				new Social($socialTabUrl);
-			}elseif ($active_tab == 'styling') {
+			} elseif ($active_tab == 'shortcode') {
+				new Shortcode($shortcodeUrl);
+			} elseif ($active_tab == 'styling') {
 				new Styling($stylingTabUrl);
 			}?>
 		</div>

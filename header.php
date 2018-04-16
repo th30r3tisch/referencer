@@ -20,7 +20,7 @@
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="<?php echo $default['page_description'] ?>">
+		<?php if($default['page_description']) { ?><meta name="description" content="<?php echo $default['page_description'] ?>"><?php } ?>
 		<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon-16x16.png" />
 		<?php wp_head();?>
 

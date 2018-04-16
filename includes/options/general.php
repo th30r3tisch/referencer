@@ -37,6 +37,8 @@ function initialise_general_options(){
 	// fetch existing options
 	$option_values = get_option($option_name);
 	
+	print_r($option_values);
+	
 	// is called to automate saving the values of the fields
 	register_setting(
 		'general_section',			// A settings group name.
@@ -73,7 +75,8 @@ function initialise_general_options(){
 			'name'			=> 'page_description',
 			'value'			=> esc_attr($data['page_description']),
 			'option_name' 	=> $option_name,
-			'description'	=> 'Choose a description for your page (between 50–300 chars). It will appear in a meta tag in the header and is <strong>important</strong> to improve your SEO.'
+			'description'	=> 'Choose a description for your page (between 50–300 chars). It will appear in a meta tag in the header and is <strong>important</strong> to improve your SEO.</br> 
+			<strong>If you use plugins like <a href="https://yoast.com/wordpress/plugins/seo/?gclid=EAIaIQobChMI8KC8hdi_2gIVDdwZCh32XAiMEAAYASAAEgKbM_D_BwE">yoast SEO</a> just leave it empty.</strong>'
 		)
 	);
 	// add option for the title

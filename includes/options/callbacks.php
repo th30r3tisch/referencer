@@ -15,6 +15,10 @@ function main_callback(){
 function style_footer_callback(){
 	echo '<p>Here you can change the style of the footer.</p>';
 }
+// displays a description under the main_styling_section
+function shortcode_callback(){
+	echo '<p>Here you can edit the referencer shortcode. You can use it with [referencer].</p>';
+}
 
 // add option to  upload a picture from the wordpress mediathek
 function picUpload_callback($args){
