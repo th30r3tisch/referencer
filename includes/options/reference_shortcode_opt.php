@@ -17,13 +17,13 @@ class Shortcode {
 				<p><strong><?php _e('settings saved', 'menu-test' ); ?></strong></p>
 			</div>			
 		<?php } ?>
-		<form name="gshortcode_options_form" id="gshortcode_options_form" method="post" action="options.php">
+		<form name="shortcode_options_form" id="shortcode_options_form" method="post" action="options.php">
 			<input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y">
 				<?php
 				do_settings_sections( $tabUrl );
 				settings_fields( 'shortcode_section' );
 				?>
-				<input class="video-add-button button-primary" type="button" value="+">
+				<input class="tech-add-button button-primary" type="button" value="+">
 				<?php
 				submit_button();
 				?>
@@ -70,42 +70,42 @@ function initialise_shortcode_options(){
 
 	// add option for the title
 	add_settings_field(
-		'tech_Title',
-		'Title',
+		'tech_Title1',
+		'1. Title',
 		'title_callback',
 		$tabUrl,
 		$mainSection,
 		array(
-			'name'			=> 'tech_Title',
-			'value'			=> esc_attr($data['tech_Title']),
+			'name'			=> 'tech_Title1',
+			'value'			=> esc_attr($data['tech_Title1']),
 			'option_name' 	=> $option_name,
 			'description'	=> 'Here you can enter the title of your ability.'
 		)
 	);
 	// add option for the description
 	add_settings_field(
-		'tech_description',
-		'Description',
+		'tech_description1',
+		'1. Description',
 		'input_callback',
 		$tabUrl,
 		$mainSection,
 		array(
-			'name'			=> 'tech_description',
-			'value'			=> esc_attr($data['tech_description']),
+			'name'			=> 'tech_description1',
+			'value'			=> esc_attr($data['tech_description1']),
 			'option_name' 	=> $option_name,
 			'description'	=> 'Write some details about the ability in the title. What have you done, what do you like or not.'
 		)
 	);
 	// add option for the skill
 	add_settings_field(
-		'tech_skill',
-		'Skill',
+		'tech_skill1',
+		'1. Skill',
 		'title_callback',
 		$tabUrl,
 		$mainSection,
 		array(
-			'name'			=> 'tech_skill',
-			'value'			=> esc_attr($data['tech_skill']),
+			'name'			=> 'tech_skill1',
+			'value'			=> esc_attr($data['tech_skill1']),
 			'option_name' 	=> $option_name,
 			'description'	=> 'Enter a number between 0 and 100 to describe how good you are. 0 is really bad and 100 is professional'
 		)

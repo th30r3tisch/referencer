@@ -7,6 +7,7 @@
 #style_options_form table, 
 #general_options_form table,
 #social_form table,
+#shortcode_options_form,
 #help-tab table{
 	background: #fffdef;
 	box-shadow: 2px 2px 5px;
@@ -16,4 +17,10 @@
 }
 #help-tab table tr:nth-child(1) th{
 	color: red;
+}
+#shortcode_options_form tbody a{
+	color: red;
+}
+#shortcode_options_form tbody:nth-child(even){
+	background: #EDEDED;
 }

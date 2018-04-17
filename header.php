@@ -65,8 +65,12 @@
 					<div class="icon-bar"></div>
 				</button>
 			</div>
-			<div class="logo d-none d-sm-block"><?php echo $default['headerTitle'] ?></div>
-			<div class="logo d-sm-none"><img src="<?php echo $styleHeader['headerLogo_image'] ?>" alt="mobile-logo"></div>
+			<div class="logo d-none d-sm-block">
+				<a href="<?php echo home_url() ?>"><?php echo $default['headerTitle'] ?></a>
+			</div>
+			<div class="logo d-sm-none">
+				<a href="<?php echo home_url() ?>"><img src="<?php echo $styleHeader['headerLogo_image'] ?>" alt="mobile-logo"></a>
+			</div>
 			<div class="flag">
 				<span>
 					<img src="<?php bloginfo('template_directory'); ?>/images/german-flag.svg" alt="german-flag">
