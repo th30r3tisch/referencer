@@ -49,42 +49,55 @@ jQuery(document).ready(function ($) {
 	
 	// adds field to shortcode option
 	$( ".tech-add-button" ).click(function() {
-		var lastNum = parseInt($( "#shortcode_options_form tbody:last th" ).text());
+		var lastNum = parseInt($( "#shortcode_options_form tr:nth-last-child(2) th" ).text());
 		var newNum = lastNum + 1;
 		
-		$( "#shortcode_options_form tbody:last" ).after(
-  			'<tbody>'+
-				'<tr>'+
+		$( "#shortcode_options_form tbody" ).append(
+				'<tr class="dark' + newNum % 2 +'">'+
 					'<th scope="row">' + newNum +'. Title</th>'+
-					'<td><input name="shortcode_options[tech_Title' + newNum + ']" value="" size="50"></td>'+
+					'<td><input name="shortcode_options[tech_Title' + newNum + ']" value=""></td>'+
 				'</tr>'+
-				'<tr>'+
+				'<tr class="dark' + newNum % 2 +'">'+
 					'<th scope="row">' + newNum +'. Description</th>'+
 					'<td><textarea name="shortcode_options[tech_description' + newNum + ']" value=""></textarea></td>'+
 				'</tr>'+
-				'<tr>'+
+				'<tr class="dark' + newNum % 2 +'">'+
 					'<th scope="row">' + newNum +'. Skill</th>'+
-					'<td><input name="shortcode_options[tech_skill' + newNum + ']" value="" size="6"></td>'+
+					'<td><input name="shortcode_options[tech_skill' + newNum + ']" value=""></td>'+
 				'</tr>'+
-				'<tr>'+
+				'<tr class="dark' + newNum % 2 +'">'+
 					'<th></th>'+
-					'<td><a class="tech-delete-button">Delete</a></td></tr>'+
-			'</tbody>'
+					'<td><a class="tech-delete-button">Delete</a></td>'+
+				'</tr>'
 		);
 	});
 	
 	// removes field from shortcode option
 	$("#shortcode_options_form").on("click", ".tech-delete-button", function() {
-		var count = 0;
-		$(this).closest('tbody').remove();
-		$("#shortcode_options_form tbody").each(function() {
-			count += 1;
-			$('tr:nth-child(1) th', this).text(count + ". Title");
-			$('tr:nth-child(2) th', this).text(count + ". Description");
-			$('tr:nth-child(3) th', this).text(count + ". Skill");
-			$('tr:nth-child(1) input', this).attr('name', 'shortcode_options[tech_Title' + count + ']');
-			$('tr:nth-child(2) textarea', this).attr('name', 'shortcode_options[tech_description' + count + ']');
-			$('tr:nth-child(3) input', this).attr('name', 'shortcode_options[tech_skill' + count + ']');
+		var elem = $(this).closest('tr');
+		var count = parseInt($(elem).prev().first().text());
+		
+		$(elem).nextAll().each(function(index) {
+			var str = $('th', this).text();
+			if (str.indexOf("Title") >= 0){
+				$('th', this).text(count + ". Title");
+				$('input', this).attr('name', 'shortcode_options[tech_Title' + count + ']');
+			}
+			if (str.indexOf("Description") >= 0){
+				$('th', this).text(count + ". Description");
+				$('textarea', this).attr('name', 'shortcode_options[tech_description' + count + ']');
+			}
+			if (str.indexOf("Skill") >= 0){
+				$('th', this).text(count + ". Skill");
+				$('input', this).attr('name', 'shortcode_options[tech_skill' + count + ']');
+			}
+			if(index % 4 === 3){
+				count += 1;
+			}
 		});
+		$(elem).prev().prev().prev().remove();
+		$(elem).prev().prev().remove();
+		$(elem).prev().remove();
+		$(elem).remove();
 	});
 });

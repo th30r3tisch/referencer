@@ -42,23 +42,14 @@ function initialise_shortcode_options(){
 	
 	// is called to automate saving the values of the fields
 	register_setting(
-		'shortcode_section',			// A settings group name.
+		'shortcode_section',		// A settings group name.
 		$option_name				// The name of an option group to save.
 	);
 	
 	$default_values = generateDefaultArray(count($option_values));
-
+	
 	// Parse option values into predefined keys, throw the rest away.
 	$data = shortcode_atts( $default_values, $option_values );
-	
-	$default_values = array(
-		'tech_Title'			=> '',
-		'tech_description'		=> '',
-		'tech_skill'			=> ''
-	);
-	
-	// parse option value into predefined keys
-	$data = shortcode_atts($default_values,$option_values);
 	
 	add_settings_section(
 		$mainSection,							// ID used to identify this section and with which to register options
@@ -107,7 +98,7 @@ function initialise_shortcode_options(){
 			'name'			=> 'tech_skill1',
 			'value'			=> esc_attr($data['tech_skill1']),
 			'option_name' 	=> $option_name,
-			'description'	=> 'Enter a number between 0 and 100 to describe how good you are. 0 is really bad and 100 is professional'
+			'description'	=> 'Enter a number between 0 and 100 to describe how good you are. 0 is really bad and 100 is professional.'
 		)
 	);
 
@@ -116,17 +107,21 @@ function initialise_shortcode_options(){
 }
 add_action ('admin_init', 'initialise_shortcode_options');
 
+
 function generateDefaultArray($num){
 	$default_array;
-	for ($i = 1; $i <= $num; ++$i) {
-		$default_array[$i] = '';
+	for ($i = 1; $i <= $num/3; ++$i) {
+		$default_array['tech_Title' .$i] = '';
+		$default_array['tech_description' .$i] = '';
+		$default_array['tech_skill' .$i] = '';
 	}
 	return $default_array;
 }
 
 function generateFields($num, $tabUrl, $mainSection, $option_name, $data){
+	
+	for ($i = 1; $i <= $num/3; ++$i) {
 		
-	for ($i = 2; $i <= $num; ++$i) {
 		add_settings_field(
 			'tech_Title' .$i, 
 			$i.'. Title', 
@@ -134,10 +129,51 @@ function generateFields($num, $tabUrl, $mainSection, $option_name, $data){
 			$tabUrl,
 			$mainSection, 
 			array( 
-				'name' => 'tech_Title' .$i,
-				'value' => esc_attr( $data[ 'tech_Title' .$i ] ),
-				'option_name' => $option_name
+				'name' 			=> 'tech_Title' .$i,
+				'value' 		=> esc_attr( $data[ 'tech_Title' .$i ] ),
+				'option_name' 	=> $option_name,
+				'description'	=> 'Here you can enter the title of your ability.'
 			)
 		);
+		add_settings_field(
+			'tech_description' .$i, 
+			$i.'. Description', 
+			'input_callback', 
+			$tabUrl,
+			$mainSection, 
+			array( 
+				'name' 			=> 'tech_description' .$i,
+				'value' 		=> esc_attr( $data[ 'tech_description' .$i ] ),
+				'option_name' 	=> $option_name,
+				'description'	=> 'Write some details about the ability in the title. What have you done, what do you like or not.'
+			)
+		);
+		add_settings_field(
+			'tech_skill' .$i, 
+			$i.'. Skill', 
+			'title_callback', 
+			$tabUrl,
+			$mainSection, 
+			array( 
+				'name' 			=> 'tech_skill' .$i,
+				'value' 		=> esc_attr( $data[ 'tech_skill' .$i ] ),
+				'option_name' 	=> $option_name,
+				'description'	=> 'Enter a number between 0 and 100 to describe how good you are. 0 is really bad and 100 is professional.'
+			)
+		);
+		if($i > 1){
+			add_settings_field(
+				'tech-delete-button' .$i, 
+				'', 
+				'delete_callback', 
+				$tabUrl,
+				$mainSection, 
+				array( 
+					'name' 			=> 'tech-delete-button',
+					'option_name' 	=> $option_name,
+					'description'	=> 'Delete'
+				)
+			);
+		}
 	}
 }

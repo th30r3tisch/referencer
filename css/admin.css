@@ -7,7 +7,7 @@
 #style_options_form table, 
 #general_options_form table,
 #social_form table,
-#shortcode_options_form,
+#shortcode_options_form table,
 #help-tab table{
 	background: #fffdef;
 	box-shadow: 2px 2px 5px;
@@ -21,6 +21,23 @@
 #shortcode_options_form tbody a{
 	color: red;
 }
-#shortcode_options_form tbody:nth-child(even){
+#shortcode_options_form .dark0{
 	background: #EDEDED;
+}
+#shortcode_options_form table{
+	border-spacing: 60px 0px;
+}
+#shortcode_options_form table th{
+	background: #fffdef;
+}
+#shortcode_options_form .submit{
+	margin-top: -38px;
+}
+#shortcode_options_form .tech-add-button{
+	margin-left: 160px;
+    margin-top: 10px;
+}
+#shortcode_options_form tr input,
+#shortcode_options_form tr textarea{
+	width: 500px;
 }

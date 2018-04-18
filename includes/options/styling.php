@@ -21,7 +21,7 @@ class Styling {
 			<input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y">
 				<?php
 				do_settings_sections( $tabUrl );
-				settings_fields( 'style_section' ); 
+				settings_fields( 'style_section' );
 				submit_button();
 				?>
 		</form>

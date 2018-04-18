@@ -37,8 +37,6 @@ function initialise_general_options(){
 	// fetch existing options
 	$option_values = get_option($option_name);
 	
-	print_r($option_values);
-	
 	// is called to automate saving the values of the fields
 	register_setting(
 		'general_section',			// A settings group name.

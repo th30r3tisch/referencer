@@ -72,11 +72,9 @@ function radio_callback($args){
 // option to change meta description
 function input_callback($args){
 	printf(
-			'<div>
-				<textarea name="%1$s[%2$s]" value="%3$s">%3$s</textarea>
-				<p></p>
-				<p class="description">%4$s</p>
-			 </div>',
+			'<textarea name="%1$s[%2$s]" value="%3$s">%3$s</textarea>
+			<p></p>
+			<p class="description">%4$s</p>',
 			$args['option_name'],
 			$args['name'],
 			$args['value'],
@@ -87,14 +85,23 @@ function input_callback($args){
 // option to change the title of the page
 function title_callback($args){
 	printf(
-			'<div>
-				<input name="%1$s[%2$s]" value="%3$s">
-				<p></p>
-				<p class="description">%4$s</p>
-			 </div>',
+			'<input name="%1$s[%2$s]" value="%3$s">
+			<p></p>
+			<p class="description">%4$s</p>',
 			$args['option_name'],
 			$args['name'],
 			$args['value'],
+			$args['description']
+			);
+}
+
+// option for a delete button
+function delete_callback($args){
+	printf(
+			'<a class="%2$s">%3$s</a>
+			<hr>',
+			$args['option_name'],
+			$args['name'],
 			$args['description']
 			);
 }
