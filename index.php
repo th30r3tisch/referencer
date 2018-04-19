@@ -15,7 +15,11 @@ get_header(); ?>
 		while ( have_posts() ): the_post();
 		?>
 		<div class="entry-content-page">
-			<?php the_content(); ?>
+			<?php 
+			if(!is_home() && ! is_front_page()){
+				the_title('<h2>', '</h2>');
+			}
+			the_content(); ?>
 		</div>
 		<?php
 		endwhile; //resetting the page loop

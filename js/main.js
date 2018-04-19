@@ -73,6 +73,7 @@ jQuery( document ).ready(function() {
 	jQuery('#menu a.nav-link, #menu a.dropdown-item').click(function(e){
 		if(!jQuery(this).parent().hasClass('menu-item-has-children')){
 			jQuery('.entry-content-page').empty();
+			jQuery('.logo a').css("opacity", 1);
 			e.preventDefault();
 			var pageUrl = jQuery(this).attr('href');
 			var pageName = jQuery(this).attr('href').match(/[^/]+(?=\/$|$)/);
