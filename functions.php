@@ -85,6 +85,12 @@ function create_main_menu_option(){
 }
 add_shortcode('picture-gallery', 'picture_gallery_shortcode');
 
+// added shortcode for the reference page
+ function references_shortcode() {
+	include("reference-shortcode.php");
+}
+add_shortcode('references', 'references_shortcode');
+
 //load pages with ajax
 function fetch_page_content() {
   if ( isset($_REQUEST) ) {
