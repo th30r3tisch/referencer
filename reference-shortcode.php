@@ -20,7 +20,7 @@ $reference_shortcode = get_option( "shortcode_options" );
 			echo ("<div>". $value ."</div>");
 		}
 		if (strpos($key, "tech_skill") === 0){
-			echo ("<div>". $value ."</div></div>");
+			echo ("<span>". $value ."</span><div class='circle'><div class='value'></div></div></div>");
 		}
 	}
 	?>

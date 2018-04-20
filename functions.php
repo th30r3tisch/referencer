@@ -24,6 +24,8 @@ function frontend_scripts() {
 	wp_enqueue_style( 'main-css', get_template_directory_uri() . '/css/main.css' );
 	wp_register_script('popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', false, '', false);
 	wp_enqueue_script('popper');
+	wp_register_script('jQueryCircle',  get_template_directory_uri() . '/jquery-circle-progress/dist/circle-progress.min.js', false, '', false);
+	wp_enqueue_script('jQueryCircle');
 }
 add_action( 'wp_enqueue_scripts', 'frontend_scripts' );
 

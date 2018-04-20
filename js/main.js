@@ -44,6 +44,8 @@ jQuery( document ).ready(function() {
 	jQuery('#menuCloseBtn').click(function(){
 		closeContent();
 	});
+	
+	animateCircle();
 
 	// click on burger menu
 	jQuery('.menu button').click(function(){
@@ -120,6 +122,7 @@ function ajaxCall(pageName, obj){
 					opacity: '1'
 					}, 500);
 				slideTile();
+				animateCircle();
 		},
 		error: function () {
 		  alert("error");
@@ -252,4 +255,21 @@ function fadeInMenu(){
 function removeContent(){
 	jQuery("#" + ajaxElementID).closest('li').css("width", "30px"); // shrinks the content container
 	jQuery("#" + ajaxElementID).remove(); // removes the content container
+}
+// animates the circles#
+function animateCircle(){
+	jQuery('.ref-wrapper').each(function(index){
+		var techvalue = parseInt(jQuery('span', this).text())/100;
+		var circle = jQuery('>.circle', this).circleProgress({
+			value: 0,
+			size: 100,
+			fill: {
+			  gradient: ["red", "orange"]
+			}
+		});
+		circle.on('circle-animation-progress', function(e, p, v) {
+		  jQuery(this).children('.value').text((100 * v).toFixed() + "%");
+		});
+		setTimeout(() => circle.circleProgress('value', techvalue), 250*index+500);
+	});
 }
