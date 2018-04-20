@@ -1,0 +1,81 @@
+// _content.scss
+
+/*******
+ content
+*******/
+
+#content{
+	background-image: url("../images/background-min.jpg");
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+	background-position: right;
+	background-size: cover;
+	height: 100vh;
+	overflow: hidden;
+	.entry-content-page{
+		padding: 100px 10vw;
+		height: 100vh;
+		overflow: scroll;
+		position: relative;
+		color: white;
+		h2{
+			margin-bottom: 30px;
+		}
+	}
+	#menuCloseBtn{
+		background: rgba(255, 255, 255, 0.5);
+		transition: 0.5s;
+		border-radius: 7px;
+		display: none;
+		position: fixed;
+		bottom: 10px;
+		right: 10px;
+		z-index: 15;
+		height: 34px;
+		i {
+			margin-top: -3px;
+		}
+		.fa-2x{
+			font-size: 2.5em;
+		}
+		&:hover{
+			background: rgba(255, 255, 255, 1);
+		}
+	}
+	#startpage {
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
+		height: 100%;
+		padding-top: 20vh;
+		padding-right: 6vw;
+		div{
+			text-align: right;
+			&.welcomeTitle{
+				font-size: 12vh;
+				font-weight: 700;
+			}
+			&.welcomeSubtitle{
+				font-size: 5vh;
+				font-weight: 500;
+			}
+		}
+	}
+}
+
+/*******
+ ajax
+*******/
+
+#ajax-content{
+	overflow: scroll;
+	height: 100vh;
+	padding: 50px 100px 150px;
+	opacity: 0;
+	color: white;
+	width: 100%;
+}
+#firefoxScroller{
+	overflow: hidden;
+	width: 100%;
+} 

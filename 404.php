@@ -10,9 +10,11 @@
  */
 get_header(); ?>
 
-<div id="error">
-	<p><?php _e("Oops !") ?></p>
-	<p><?php _e("Entschuldigung, die aufgerufene Url existiert nicht.") ?></p>
+<div id="content">
+	<div id="error">
+		<p><?php _e("Oops !") ?></p>
+		<p><?php _e("Entschuldigung, die aufgerufene Url existiert nicht.") ?></p>
+	</div>
 </div>
 
 <?php get_footer(); ?>

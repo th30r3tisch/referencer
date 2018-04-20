@@ -14,7 +14,7 @@ $reference_shortcode = get_option( "shortcode_options" );
 	<?php
 	foreach($reference_shortcode as $key => $value){
 		if (strpos($key, "tech_Title") === 0){
-			echo ("<div><h3>". $value ."</h3>");
+			echo ("<div class='ref-wrapper'><h3>". $value ."</h3>");
 		}
 		if (strpos($key, "tech_description") === 0){
 			echo ("<div>". $value ."</div>");
