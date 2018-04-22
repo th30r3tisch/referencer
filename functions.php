@@ -93,12 +93,21 @@ add_shortcode('picture-gallery', 'picture_gallery_shortcode');
 }
 add_shortcode('references', 'references_shortcode');
 
+ add_action('the_content','ravs_content_div');
+ function ravs_content_div( $content ){
+  return '<div>'.$content.'</div>';
+ }
+
 //load pages with ajax
 function fetch_page_content() {
   if ( isset($_REQUEST) ) {
     $page_name = $_REQUEST['pageName'];
  	$page = get_page_by_title( $page_name[0] );
 	$content = apply_filters('the_content', $page->post_content);
+	ob_start();
+	include('footer-ajax.php');
+	$footer = ob_get_clean();
+	$content .= $footer;
 	echo $content;
   }
   die();

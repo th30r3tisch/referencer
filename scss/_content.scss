@@ -11,11 +11,10 @@
 	background-position: right;
 	background-size: cover;
 	height: 100vh;
-	overflow: hidden;
+	overflow: scroll;
 	.entry-content-page{
 		padding: 100px 10vw;
-		height: 100vh;
-		overflow: scroll;
+		min-height:  calc(100vh - 50px);
 		position: relative;
 		color: white;
 		h2{
@@ -71,10 +70,13 @@
 #ajax-content{
 	overflow: scroll;
 	height: 100vh;
-	padding: 50px 100px 150px;
+	padding: 50px 100px;
 	opacity: 0;
 	color: white;
 	width: 100%;
+	>div:first-of-type{
+		min-height: calc(100% - 75px);
+	}
 }
 #firefoxScroller{
 	overflow: hidden;

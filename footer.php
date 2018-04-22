@@ -39,5 +39,3 @@ $default = get_option( "general_options" );
 	</div>
 
 	<?php wp_footer(); ?>
-	</body>
-</html>

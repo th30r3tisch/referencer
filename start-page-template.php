@@ -21,5 +21,5 @@ get_header(); ?>
 	<div id="menuCloseBtn">
 		<i class="far fa-caret-square-left fa-2x"></i>
 	</div>
+	<?php get_footer(); ?>
 </div>
-<?php get_footer(); ?>

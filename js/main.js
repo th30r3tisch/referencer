@@ -13,33 +13,15 @@ jQuery( window ).resize(function() {
 	}
 });
 
-//detects if the bottom of the page is visible
-jQuery('.entry-content-page').scroll(function(){
-        //console.log(jQuery(this).scrollTop()+' + '+ jQuery(this).height() +' = '+ (jQuery(this).scrollTop() + jQuery(this).height() + 83)   +' _ '+ jQuery(this)[0].scrollHeight );
-        detectScroll(this);
-    });
-
 // scrolls the modal to the info part
 jQuery('#modal').on('click', '.downToInfo', function(){
 	jQuery('#modal').animate({
-        scrollTop: jQuery("h2").offset().top
+        scrollTop: jQuery(".picPostInfo").offset().top
     }, 1000);
 });
 
 jQuery( document ).ready(function() {
 	"use strict";
-	jQuery(document).ajaxComplete(function( event, xhr, settings ) {
-  		if(jQuery('#' + ajaxInnerContainer)[0].scrollHeight < jQuery('#content').height()){ 
-			jQuery('#footer').css('display', 'inline-flex');
-		}else{
-			document.addEventListener('scroll', function (event) {
-				if (event.target.id === 'ajax-content') { // or any other filtering condition 
-					detectScroll(event.target);
-				}
-			}, true /*Capture event*/);
-		}
-	});
-	detectScroll(jQuery('.entry-content-page'));
 	// click on menu close button
 	jQuery('#menuCloseBtn').click(function(){
 		closeContent();
@@ -116,8 +98,8 @@ function ajaxCall(pageName, obj){
 		},
 		context: obj,
 		success:function(data) { // inserst the content in the div inserted before
+				jQuery('#footer').hide();
 				jQuery("#" + ajaxInnerContainer).html(data);
-				jQuery('#footer').css('display', 'none');
 				jQuery("#" + ajaxInnerContainer).delay(500).animate({
 					opacity: '1'
 					}, 500);
@@ -187,12 +169,6 @@ function slideTile(){
 	});
 }
 
-// detects when the page is at the bottom
-function detectScroll(scrollObj){
-	if(jQuery(scrollObj).scrollTop() + jQuery(scrollObj).height() + 135 >= jQuery(scrollObj)[0].scrollHeight - 50){
-            jQuery('#footer').css('display', 'inline-flex');
-        }else{jQuery('#footer').hide();}
-}
 // shrinks the content element and removes the content
 function closeContent(){
 	burgerToCross();
