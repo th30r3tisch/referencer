@@ -30,9 +30,6 @@ $rgba-secondary-2-4: rgba(136,240,  0,1);
 
 body{
 	font-family: 'Ubuntu', sans-serif;
-	//font-family: 'Yanone Kaffeesatz', sans-serif; // not so good
-	//font-family: 'Maven Pro', sans-serif;
-	//font-family: 'Righteous', cursive;
 }
 
 ::-webkit-scrollbar {
@@ -75,6 +72,10 @@ body{
 		text-align: center;
 		a{
 			color: white;
+			&:hover{
+				color: $rgba-secondary-1-4;
+				text-decoration: none;
+			}
 		}
 	}
 }
@@ -178,6 +179,9 @@ modal
 		span{
 			margin-right: 10px;
 		}
+		.downToInfo{
+			cursor: pointer;
+		}
 	}
 	max-width: 70vw;
 	img{
@@ -202,6 +206,7 @@ modal
 		font-style: italic;
 		margin-top: -10px;
 		margin-bottom: 40px;
+		color:rgba(  0,139,191,1);
 		span{
 			padding: 10px;
 			&:first-child{

@@ -249,7 +249,7 @@ function animateCircle(){
 			size: 120,
 			thickness: 8,
 			fill: {
-				gradient: ["rgba( 39, 88,107,1)", "rgba(  0,139,191,1)"] 
+				gradient: ["rgba(136,240,  0,1)", "rgba(  0,139,191,1)"] 
 			}
 		});
 		circle.on('circle-animation-progress', function(e, p, v) {

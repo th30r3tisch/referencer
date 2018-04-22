@@ -4,6 +4,14 @@
  menu
 *******/
 
+@mixin menu-bar($color) {
+	writing-mode: vertical-rl;
+	transform: rotate(180deg);
+	width: 30px;
+	text-align: center;
+	color: $color;
+}
+
 #menu {
 	margin-top: 50px;
 	display: inline-block;
@@ -20,12 +28,8 @@
 		margin-left: -30px;
 		transition: 0.5s;
 		.nav-link{
-			writing-mode: vertical-rl;
-			transform: rotate(180deg);
+			@include menu-bar(rgba(255,255,255,0));
 			height: calc(100vh - 50px);
-			text-align: center;
-			width: 30px;
-			color: rgba(255,255,255,0);
 			padding: 0px;
 			transition: color 0.2s, letter-spacing 0.5s;
 			&.fade-text{
@@ -52,12 +56,8 @@
 		padding: 0;
 		border: none;
 		.dropdown-item{
-			writing-mode: vertical-rl;
-			transform: rotate(180deg);
-			width: 30px;
+			@include menu-bar(white);
 			padding: 10px 0;
-			color: white;
-			text-align: center;
 			transition: letter-spacing 0.5s;
 			&:hover {
     			text-decoration: none;
@@ -74,52 +74,23 @@
 	}
 }
 
+@mixin menu-color($color) {
+	#firefoxScroller{
+			background: rgba($color,$color,$color,0.5);
+	}
+	a{
+		background: rgba($color,$color,$color,1);
+	}
+}
 
-.menu-item:nth-child(1) {
-	#firefoxScroller{
-			background: rgba(30,30,30,0.5);
-	}
-	a{
-		background: rgba(30,30,30,1);
-	}
-}
-.menu-item:nth-child(2) {
-	#firefoxScroller{
-		background: rgba(50,50,50,0.5);
-	}
-	a{
-		background: rgba(50,50,50,1);
-	}
-}
-.menu-item:nth-child(3) {
-	#firefoxScroller{
-		background: rgba(70,70,70,0.5);
-	}
-	a{
-		background: rgba(70,70,70,1);
-	}
-}
-.menu-item:nth-child(4) {
-	#firefoxScroller{
-			background: rgba(90,90,90,0.5);
-	}
-	a{
-		background: rgba(90,90,90,1);
-	}
-}
-.menu-item:nth-child(5) {
-	#firefoxScroller{
-			background: rgba(110,110,110,0.5);
-	}
-	a{
-		background: rgba(110,110,110,1);
-	}
-}
-.menu-item:nth-child(6) {
-	#firefoxScroller{
-			background: rgba(130,130,130,0.5);
-	}
-	a{
-		background: rgba(130,130,130,1);
-	}
-}
+.menu-item:nth-child(1) { @include menu-color(30); }
+
+.menu-item:nth-child(2) { @include menu-color(50); }
+
+.menu-item:nth-child(3) { @include menu-color(70); }
+
+.menu-item:nth-child(4) { @include menu-color(90); }
+
+.menu-item:nth-child(5) { @include menu-color(110); }
+
+.menu-item:nth-child(6) { @include menu-color(130); }
