@@ -171,6 +171,13 @@ window.addEventListener('popstate', function(e){
     }
 });
 
+// opens the text in the reference shortcode on click
+jQuery('#content').on('click', '.ref-wrapper i', function(){
+	var targetContainer = jQuery(this).closest('.ref-wrapper');
+	jQuery('div:nth-of-type(1)', targetContainer).toggle('slow');
+	jQuery('.circle', targetContainer).toggle("slow");
+});
+
 // slides in the image tiles
 function slideTile(){
 	jQuery('.image-tile').each(function(index){
@@ -259,12 +266,14 @@ function removeContent(){
 // animates the circles#
 function animateCircle(){
 	jQuery('.ref-wrapper').each(function(index){
-		var techvalue = parseInt(jQuery('span', this).text())/100;
+		var techvalue = parseInt(jQuery('span:nth-of-type(1)', this).text())/100;
+		var colorvalue = jQuery('span:nth-of-type(2)', this).text();
 		var circle = jQuery('>.circle', this).circleProgress({
 			value: 0,
-			size: 100,
+			size: 120,
+			thickness: 8,
 			fill: {
-			  gradient: ["red", "orange"]
+				gradient: ["rgba( 39, 88,107,1)", "rgba(  0,139,191,1)"] 
 			}
 		});
 		circle.on('circle-animation-progress', function(e, p, v) {
