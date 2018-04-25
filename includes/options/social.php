@@ -50,7 +50,8 @@ function intialize_social_options() {
 			'linkedin' 		=> '',
 			'google' 		=> '',
 			'twitter' 		=> '',
-			'youtube' 		=> ''
+			'youtube' 		=> '',
+			'github'		=> ''
 		);
 
 		// Parse option values into predefined keys, throw the rest away.
@@ -149,6 +150,20 @@ function intialize_social_options() {
 			array(
 				'name' => 'twitter',
 				'value' => esc_attr( $data[ 'twitter' ] ),
+				'option_name' => $option_name
+			)
+		);
+	
+		//adds the option to insert a twitterlink
+		add_settings_field(
+			'github',
+			'Github',
+			'social_callback',
+			$tabUrl,
+			$socialSection,
+			array(
+				'name' => 'github',
+				'value' => esc_attr( $data[ 'github' ] ),
 				'option_name' => $option_name
 			)
 		);

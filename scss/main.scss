@@ -62,6 +62,9 @@ body{
 /*******
  footer
 *******/
+#startpage ~ #footer #mediaLinks{
+	display: none;
+}
 
 #footer, #footer-ajax{
 	display: inline-flex;
