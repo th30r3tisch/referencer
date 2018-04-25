@@ -24,6 +24,12 @@
 	#content .entry-content-page {
 		margin: 100px 10vw 50px;
 	}
+	#footer, #footer-ajax{
+		#mediaLinks{
+			left: 10vw;
+			width: calc(100% - 20vw);
+		}
+	}
 }
 
 @media (max-width: 800px) {
@@ -50,10 +56,6 @@
 }
 
 @media (max-width: 700px) {
-	.image-tile{
-		width: 33%;
-    	height: 33%;
-	}
 	.ref-wrapper {
 		i{
 			display: inline-block;
@@ -115,6 +117,10 @@
 		display: block;
 		&>div{
 			width: 100vw;
+		}
+		#mediaLinks{
+			left: 10px;
+			width: calc(100% - 20px);
 		}
 	}
 	#footer-ajax{

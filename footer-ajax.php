@@ -8,6 +8,7 @@
  */
 
 $default = get_option( "general_options" );
+$mediaOptions = get_option( "social_options" );
 
 ?>
 
@@ -27,5 +28,15 @@ $default = get_option( "general_options" );
 			<a href="<?php $url = get_home_url()."/impressum"; echo esc_url( $url );?>">
 				<?php _e( "Imprint" )?></a>
 		</div>
+	</div>
+	<div id="mediaLinks">
+		<?php
+		foreach ( $mediaOptions as $key => $val ) {
+			if ( $mediaOptions[ $key ] != '' ) {
+				echo '<a href="' . $mediaOptions[ $key ] . '" class="fab fa-' . $key . ' fa-2x"></a>';
+			}
+		}
+		unset( $mediaOptions[ $key ] );
+		?>
 	</div>
 </div>
