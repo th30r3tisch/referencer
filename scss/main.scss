@@ -30,6 +30,7 @@ $rgba-secondary-2-4: rgba(136,240,  0,1);
 
 body{
 	font-family: 'Ubuntu', sans-serif;
+	word-wrap: break-word;
 }
 
 ::-webkit-scrollbar {
@@ -97,8 +98,10 @@ body{
     flex-wrap: wrap;
 }
 .image-tile{
-	width: 300px;
-	height: 300px;
+	max-width: 300px;
+	max-height: 300px;
+	width: 33%;
+    height: 33%;
 	position: relative;
 	margin: 3px;
 	margin-top: 100vh;
@@ -149,11 +152,10 @@ body{
 		display: none;
 	}
 	&>div:nth-of-type(1){
-		width: 80%;
-		padding-right: 100px;
+		width: 65%;
 	}
 	&>div:nth-of-type(2){
-		width: 20%;
+		width: 35%;
 		text-align: center;
 		top: 20px;
 		right: 0;
@@ -184,7 +186,7 @@ modal
 		}
 	}
 	max-width: 70vw;
-	img{
+	.wp-post-image{
 		width: calc(100% + 60px);
 		height: auto;
 		margin: -30px 0 0 -30px;

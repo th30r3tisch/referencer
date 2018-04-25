@@ -13,10 +13,12 @@
 	height: 100vh;
 	overflow: scroll;
 	.entry-content-page{
-		padding: 100px 10vw;
+		margin: 100px 20vw 50px;
+    	padding: 50px;
 		min-height:  calc(100vh - 50px);
 		position: relative;
 		color: white;
+		Background: #403f3f;
 		h2{
 			margin-bottom: 40px;
 			text-align: center;
@@ -53,9 +55,9 @@
 		display: flex;
 		flex-flow: column;
 		justify-content: center;
-		height: 100%;
+		height: calc(100% - 50px);
 		padding-top: 30vh;
-		padding-right: 6vw;
+		padding-right: 16vw;
 		div{
 			text-align: right;
 			&.welcomeTitle{
@@ -83,6 +85,9 @@
 	width: 100%;
 	>div:first-of-type{
 		min-height: calc(100% - 75px);
+		background: #403f3f;
+		margin: 50px 15vw;
+		padding: 50px;
 	}
 }
 #firefoxScroller{

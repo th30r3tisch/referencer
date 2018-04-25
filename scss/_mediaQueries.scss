@@ -15,6 +15,16 @@
 	} 
 }
 
+@media (max-width: 1000px) {
+	#ajax-content{
+		>div:first-of-type{
+			margin: 10px 5vw;
+		}
+	}
+	#content .entry-content-page {
+		margin: 100px 10vw 50px;
+	}
+}
 
 @media (max-width: 800px) {
 	#ajax-content{
@@ -41,8 +51,8 @@
 
 @media (max-width: 700px) {
 	.image-tile{
-		width: 37vw;
-    	height: 37vw;
+		width: 33%;
+    	height: 33%;
 	}
 	.ref-wrapper {
 		i{
@@ -78,20 +88,28 @@
 
 @media (max-width: 550px) {
 	#content .entry-content-page {
-    	padding: 100px 20px;
-		#startpage {
-			div{
-				&.welcomeTitle{
-					font-size: 12vw;
-				}
-				&.welcomeSubtitle{
-					font-size: 5vw;
-				}
+    	padding: 50px 20px;
+		margin: 100px 10px 50px;
+		h2{
+			font-size: 1.5rem;
+		}
+	}
+	#content #startpage {
+		div{
+			&.welcomeTitle{
+				font-size: 15vw;
+			}
+			&.welcomeSubtitle{
+				font-size: 5vw;
 			}
 		}
 	}
 	#ajax-content{
-		padding: 75px 25px 50px;
+		padding: 75px 10px 50px;
+		>div:first-of-type{
+			margin: 0;
+			padding: 20px;
+		}
 	}
 	#footer, #footer-ajax{
 		display: block;
