@@ -50,7 +50,11 @@
 			.welcomeTitle{color: <?php echo $styleContent['color_welcomeTitle'] ?>;}
 			.welcomeSubtitle{color: <?php echo $styleContent['color_welcomeSubTitle'] ?>;}
 			#content{ background-image: <?php if($styleContent['background_image']) echo ('url("' . $styleContent['background_image'] . '")')?>;}
-			#footer, #footer > div a{ color: <?php echo $styleFooter['color_letters'] ?>;}
+			#content .entry-content-page{color: <?php echo $styleContent['color_letter'] ?>;}
+			#ajax-content{color: <?php echo $styleContent['color_letter'] ?>;}
+			#footer-ajax, #footer, #footer-ajax a, #footer a{ color: <?php echo $styleFooter['color_letters'] ?>;}
+			#footer #mediaLinks a, #footer-ajax #mediaLinks a{color: <?php echo $styleFooter['color_social'] ?>;}
+			#footer #mediaLinks{background: <?php echo $styleFooter['color_mediabar'] ?>;}
 		</style>
 		<script>
 		var ajaxurl = '<?php echo admin_url('admin-ajax.php'); ?>';

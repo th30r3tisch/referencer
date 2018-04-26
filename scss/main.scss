@@ -74,13 +74,10 @@ body{
 	&>div{
 		width: 50vw;
 		text-align: center;
-		a{
-			color: white;
-			&:hover{
-				color: $rgba-secondary-1-4;
-				text-decoration: none;
-			}
-		}
+	}
+	a:hover{
+		color: $rgba-secondary-1-4 !important;
+		text-decoration: none;
 	}
 	#mediaLinks{
 		background: #403f3f;

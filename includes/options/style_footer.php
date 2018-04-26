@@ -15,7 +15,9 @@ function initialise_style_footer_options(){
 	);
 	
 	$default_values = array(
-		'color_letters'		=> ''
+		'color_letters'		=> '',
+		'color_social'		=> '',
+		'color_mediabar'	=> ''
 	);
 	
 	// parse option value into predefined keys
@@ -40,6 +42,36 @@ function initialise_style_footer_options(){
 			'value'			=> esc_attr($data['color_letters']),
 			'option_name' 	=> $option_name,
 			'description'	=> 'Choose the color of the text in the footer.'
+		)
+	);
+	
+	// add option to change the header background between image and color
+	add_settings_field(
+		'color_social',
+		'Social icon color',
+		'color_callback',
+		$tabUrl,
+		$mainSection,
+		array(
+			'name'			=> 'color_social',
+			'value'			=> esc_attr($data['color_social']),
+			'option_name' 	=> $option_name,
+			'description'	=> 'Choose the color of the social icons in the media bar.'
+		)
+	);
+	
+	// add option to change the header background between image and color
+	add_settings_field(
+		'color_mediabar',
+		'Media bar color',
+		'color_callback',
+		$tabUrl,
+		$mainSection,
+		array(
+			'name'			=> 'color_mediabar',
+			'value'			=> esc_attr($data['color_mediabar']),
+			'option_name' 	=> $option_name,
+			'description'	=> 'Choose the color of the media bar.'
 		)
 	);
 	

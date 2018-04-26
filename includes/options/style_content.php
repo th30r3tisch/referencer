@@ -17,7 +17,8 @@ function initialise_style_content_options(){
 	$default_values = array(
 		'color_welcomeTitle'		=> '',
 		'color_welcomeSubTitle'		=> '',
-		'background_image'			=> ''
+		'background_image'			=> '',
+		'color_letter'				=> ''
 	);
 	
 	// parse option value into predefined keys
@@ -41,7 +42,7 @@ function initialise_style_content_options(){
 			'name'			=> 'color_welcomeTitle',
 			'value'			=> esc_attr($data['color_welcomeTitle']),
 			'option_name' 	=> $option_name,
-			'description'	=> 'Choose the color of the title.'
+			'description'	=> 'Choose the color of the title at the startpage.'
 		)
 	);
 	
@@ -56,7 +57,7 @@ function initialise_style_content_options(){
 			'name'			=> 'color_welcomeSubTitle',
 			'value'			=> esc_attr($data['color_welcomeSubTitle']),
 			'option_name' 	=> $option_name,
-			'description'	=> 'Choose the color of the subtitle.'
+			'description'	=> 'Choose the color of the subtitle at the startpage.'
 		)
 	);
 	
@@ -72,6 +73,21 @@ function initialise_style_content_options(){
 			'value'			=> esc_attr($data['background_image']),
 			'option_name' 	=> $option_name,
 			'description'	=> 'Select the background image behind the content.'
+		)
+	);
+	
+	// add option to  upload a picture from the wordpress mediathek
+	add_settings_field(
+		'color_letter',
+		'Text color',
+		'color_callback',
+		$tabUrl,
+		$mainSection,
+		array(
+			'name'			=> 'color_letter',
+			'value'			=> esc_attr($data['color_letter']),
+			'option_name' 	=> $option_name,
+			'description'	=> 'Select the color of the text in the content.'
 		)
 	);
 }
