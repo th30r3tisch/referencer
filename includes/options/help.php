@@ -31,7 +31,9 @@ function intialize_help_options() {
 
 		$default_values = array(
 			'issues'							=> '',
-			'reference-pictures-shortcode' 		=> ''
+			'reference-pictures-shortcode' 		=> '',
+			'startpage'							=> '',
+			'reference-shortcode'				=> ''
 		);
 
 		// Parse option values into predefined keys, throw the rest away.
@@ -73,7 +75,7 @@ function intialize_help_options() {
 		//adds the option to insert a facebooklink
 		add_settings_field(
 			'reference_pictures_shortcode', 					
-			'Reference picutres shortcode', 					
+			'Picutre gallery shortcode', 					
 			'help_callback', 				
 			$tabUrl, 								
 			$socialSection, 						
@@ -82,6 +84,37 @@ function intialize_help_options() {
 				'option_name' => $option_name,
 				'description'	=> 'You can use this shortcode by writing [picture-gallery] in the content field of a page.</br>
 				It will take all posts with the category "picture-gallery" and display its featured image as thumbnail and its tags in a responsive grid.'
+			)
+		);
+	
+		//adds the option to insert a facebooklink
+		add_settings_field(
+			'startpage', 					
+			'Startpage', 					
+			'help_callback', 				
+			$tabUrl, 								
+			$socialSection, 						
+			array( 									
+				'name' => 'startpage',
+				'option_name' => $option_name,
+				'description'	=> 'If you want to use the startpage of the theme you can enter you text in the theme options in the "General" tab.</br>
+				Then just make a new page and choose the startpage template. </br>
+				In the settings of WordPress select in the "Read" category "Static frontpage" and choose your page in the "Homepage" dropdown."'
+			)
+		);
+	
+		//adds the option to insert a facebooklink
+		add_settings_field(
+			'reference-shortcode', 					
+			'Reference shortcode', 					
+			'help_callback', 				
+			$tabUrl, 								
+			$socialSection, 						
+			array( 									
+				'name' => 'reference-shortcode',
+				'option_name' => $option_name,
+				'description'	=> 'To use this shortcode write [references] in the content field of a page.</br>
+				The settings can be found in the theme options at the "Shortcode" tab. All your abilities will be displayed at the page with the shortcode.'
 			)
 		);
 
