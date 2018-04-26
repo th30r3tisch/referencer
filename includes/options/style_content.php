@@ -18,7 +18,9 @@ function initialise_style_content_options(){
 		'color_welcomeTitle'		=> '',
 		'color_welcomeSubTitle'		=> '',
 		'background_image'			=> '',
-		'color_letter'				=> ''
+		'color_letter'				=> '',
+		'color_content_wrapper'		=> '',
+		'color_link'				=> ''
 	);
 	
 	// parse option value into predefined keys
@@ -31,7 +33,7 @@ function initialise_style_content_options(){
 		$tabUrl									// Page on which to add this section of options
 	); 
 	
-	// add option to change the header background between image and color
+	// add option to change the color
 	add_settings_field(
 		'color_welcomeTitle',
 		'Title color',
@@ -46,7 +48,7 @@ function initialise_style_content_options(){
 		)
 	);
 	
-	// add option to change the header background between image and color
+	// add option to change the color
 	add_settings_field(
 		'color_welcomeSubTitle',
 		'Subtitle Color',
@@ -76,7 +78,7 @@ function initialise_style_content_options(){
 		)
 	);
 	
-	// add option to  upload a picture from the wordpress mediathek
+	// add option to change the color
 	add_settings_field(
 		'color_letter',
 		'Text color',
@@ -88,6 +90,35 @@ function initialise_style_content_options(){
 			'value'			=> esc_attr($data['color_letter']),
 			'option_name' 	=> $option_name,
 			'description'	=> 'Select the color of the text in the content.'
+		)
+	);
+	
+	// add option to change the color
+	add_settings_field(
+		'color_content_wrapper',
+		'Content background color',
+		'color_callback',
+		$tabUrl,
+		$mainSection,
+		array(
+			'name'			=> 'color_content_wrapper',
+			'value'			=> esc_attr($data['color_content_wrapper']),
+			'option_name' 	=> $option_name,
+			'description'	=> 'Select the color the content wrapper should have.'
+		)
+	);
+	// add option to change the color
+	add_settings_field(
+		'color_link',
+		'Link color',
+		'color_callback',
+		$tabUrl,
+		$mainSection,
+		array(
+			'name'			=> 'color_link',
+			'value'			=> esc_attr($data['color_link']),
+			'option_name' 	=> $option_name,
+			'description'	=> 'Select the color the links in the content.'
 		)
 	);
 }

@@ -50,8 +50,13 @@
 			.welcomeTitle{color: <?php echo $styleContent['color_welcomeTitle'] ?>;}
 			.welcomeSubtitle{color: <?php echo $styleContent['color_welcomeSubTitle'] ?>;}
 			#content{ background-image: <?php if($styleContent['background_image']) echo ('url("' . $styleContent['background_image'] . '")')?>;}
-			#content .entry-content-page{color: <?php echo $styleContent['color_letter'] ?>;}
+			#content .entry-content-page{
+				color: <?php echo $styleContent['color_letter'] ?>;
+				background: <?php echo $styleContent['color_content_wrapper'] ?>;}
+			#content .entry-content-page a{color:<?php echo $styleContent['color_link'] ?>;}
 			#ajax-content{color: <?php echo $styleContent['color_letter'] ?>;}
+			#ajax-content > div:first-of-type{background: <?php echo $styleContent['color_content_wrapper'] ?>;}
+			#ajax-content > div:first-of-type a{color:<?php echo $styleContent['color_link'] ?>;}
 			#footer-ajax, #footer, #footer-ajax a, #footer a{ color: <?php echo $styleFooter['color_letters'] ?>;}
 			#footer #mediaLinks a, #footer-ajax #mediaLinks a{color: <?php echo $styleFooter['color_social'] ?>;}
 			#footer #mediaLinks{background: <?php echo $styleFooter['color_mediabar'] ?>;}
