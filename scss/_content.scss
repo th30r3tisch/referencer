@@ -15,7 +15,7 @@
 	.entry-content-page{
 		margin: 100px 20vw 50px;
     	padding: 50px;
-		min-height:  calc(100vh - 50px);
+		min-height:  calc(100vh - 200px);
 		position: relative;
 		color: white;
 		Background: #403f3f;
@@ -84,7 +84,7 @@
 	color: white;
 	width: 100%;
 	>div:first-of-type{
-		min-height: calc(100% - 75px);
+		min-height: calc(100% - 200px);
 		background: #403f3f;
 		margin: 50px 15vw;
 		padding: 50px;
